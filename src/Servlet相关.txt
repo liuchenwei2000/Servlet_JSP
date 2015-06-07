@@ -1,0 +1,21 @@
+
+
+部署步骤
+
+1，将servlet源文件编译成class文件或导出成*.war文件。
+2，将class文件或war包放在WEB-INF/classes路径下，如果servlet有包名，还应该将class文件放在对应的包路径下。
+3，在web.xml中配置servlet。
+
+
+生命周期
+
+servlet在容器中运行时，其实例的创建及销毁都不是由程序员决定的，而是由Web容器进行控制的。
+
+每个servlet的运行都遵循如下生命周期：
+1，创建servlet实例。
+有两个时机：
+当客户端第一次请求某个servlet时，系统创建其实例，大部分的servlet都是这样。
+Web应用启动时立即创建servlet实例，即 load-on-startup servlet。
+2，Web容器调用servlet的init方法，对servlet进行初始化。
+3，servlet初始化后，将一直存在于容器中，用于响应客户端请求。
+4，Web容器决定销毁servlet时，先调用其destroy方法，通常在关闭Web应用之时销毁servlet。

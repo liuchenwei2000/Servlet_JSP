@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0">
+  
+  	<!-- 配置servlet -->
+  	<servlet>
+	   <!-- 指定servlet的名字 -->
+	   <servlet-name>servletdemo</servlet-name>
+	   <!-- 指定servlet的实现类全类名 -->
+	   <servlet-class>servlet.ServletTest</servlet-class>
+	   <!-- 配置servlet的初始化参数，可以配置多个参数 -->
+	   <init-param>
+	      <param-name>id</param-name>
+	      <param-value>tom</param-value>
+	   </init-param>
+	   <init-param>
+	      <param-name>password</param-name>
+	      <param-value>ttoomm</param-value>
+	   </init-param>
+	   <!-- 指定servlet在Web容器启动时就会被实例化，默认情况下，servlet会在第一次请求到来时被实例化。 -->
+	   <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>servletdemo</servlet-name>
+	   <!-- 指定servlet映射的URL地址 -->
+	   <url-pattern>/sdemo.do</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 配置filter -->
+	<filter>
+	   <!-- 指定filter的名字 -->
+	   <filter-name>filterdemo</filter-name>
+	   <!-- 指定filter的实现类全类名 -->
+	   <filter-class>filter.FilterTest</filter-class>
+	   <!-- 配置filter的初始化参数，可以配置多个参数 -->
+	   <init-param>
+	      <param-name>loginPage</param-name>
+	      <param-value>/index.html</param-value>
+	   </init-param>
+	</filter>
+	
+	<filter-mapping>
+	   <filter-name>filterdemo</filter-name>
+	   <!-- Filter负责拦截的URL，* 表示全部拦截 -->
+	   <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 配置listener -->
+	<listener>
+		<!-- 指定listener的实现类全类名即可 -->
+		<listener-class>listener.MyServletContextListener</listener-class>
+	</listener>
+	
+	<!-- 注册引用的资源，如JNDI资源，详见文件META-INF/context.xml -->
+	<resource-ref> 
+		<!-- 引用资源描述 -->
+        <description>DBConnection</description>
+        <!-- 引用资源的JNDI名 -->
+        <res-ref-name>jdbc/test</res-ref-name>
+        <!-- 引用资源的类名 --> 
+        <res-type>javax.sql.DataSource</res-type>
+        <!-- 管理者： Container －容器管理，Application－Web应用管理。 --> 
+        <res-auth>Container</res-auth> 
+    </resource-ref>
+
+	<session-config>
+		<!-- session 超时设置，单位为分钟 -->
+		<session-timeout>1</session-timeout>
+	</session-config>
+    
+    <!-- demo 相关配置 -->
+    
+    <listener>
+    	<listener-class>listener.demo.OnlineUserListener</listener-class>
+    </listener>
+    
+    <listener>
+    	<listener-class>ws.WSServer</listener-class>
+    </listener>
+    
+    <filter>
+	   <filter-name>logFilter</filter-name>
+	   <filter-class>filter.demo.LogFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	   <filter-name>logFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	   <filter-name>ceFilter</filter-name>
+	   <filter-class>filter.demo.CharacterEncodingFilter</filter-class>
+	   <init-param>
+	   		<param-name>encoding</param-name>
+	   		<param-value>GBK</param-value>
+	   </init-param>
+	</filter>
+	
+	<filter-mapping>
+	   <filter-name>ceFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
+	<servlet>
+	   <servlet-name>countryServlet</servlet-name>
+	   <servlet-class>servlet.demo.CountryServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>countryServlet</servlet-name>
+	   <url-pattern>/country.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	   <servlet-name>downloadServlet</servlet-name>
+	   <servlet-class>servlet.demo.FileDownloadServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>downloadServlet</servlet-name>
+	   <url-pattern>/download.do</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	   <servlet-name>jndiTestServlet</servlet-name>
+	   <servlet-class>servlet.demo.JndiTestServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>jndiTestServlet</servlet-name>
+	   <url-pattern>/jnditest.do</url-pattern>
+	</servlet-mapping>
+
+</web-app>
