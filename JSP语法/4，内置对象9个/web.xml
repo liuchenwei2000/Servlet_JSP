@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="2.5"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   
+						http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- 使用 <context-param> 元素配置的参数对整个Web应用有效，在JSP页面中可以通过 application 对象来操作。  -->
+	<context-param>
+		<param-name>url</param-name>
+		<param-value>www.oracle.com</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>password</param-name>
+		<param-value>p@ssword</param-value>
+	</context-param>
+
+	<!-- 配置JSP，可以把JSP当做 Servlet 配置，并为其配置初始参数 -->
+	<servlet>
+		<servlet-name>jspconfig</servlet-name>
+		<!-- 指定 jsp 文件路径 -->
+		<jsp-file>/config对象.jsp</jsp-file>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>vic liu</param-value>
+		</init-param>
+		<init-param>
+			<param-name>age</param-name>
+			<param-value>28</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>jspconfig</servlet-name>
+		<url-pattern>/jspconfig</url-pattern>
+	</servlet-mapping>
+</web-app>

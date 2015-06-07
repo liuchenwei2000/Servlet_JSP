@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!-- 
+TLD是Tag Library Definition的缩写，文件后缀是tld，每个tld文件对应一个标签库，一个标签库中可包含多个标签。 
+将该文件放到Web应用的WEB-INF下，或者WEB-INF的任意子路径下。Java Web规范会自动加载该文件，其定义的标签库也将生效。
+-->
+
+<!-- 根元素是taglib，可以包含多个tag子元素，每个tag子元素都定义一个标签。 -->
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+	<description>A simple tab library for the examples</description>
+	<!-- 指定该标签库实现的版本，是一个作为标识的内部版本号。 -->
+	<tlib-version>1.0</tlib-version>
+	<!-- 该标签的默认短名 -->
+	<short-name>mytag</short-name>
+	<!-- 指定该标签库的URI，相当于标签库的唯一标识。JSP页面中使用标签时就是根据URI属性来定位标签库的。 -->
+	<uri>http://taglib.mytag.com</uri>
+
+	<!-- 不带属性的简单tag -->
+	<tag>
+		<description> Display Hello world </description>
+		<!-- 标签名称，JSP页面中根据此名称来使用标签。 -->
+		<name>helloworld</name>
+		<!-- 标签的处理类，指定了标签由哪个标签处理类来处理。 -->
+		<tag-class>taglib.HelloWorldTag</tag-class>
+		<!-- 
+		指定标签体内容，取值如下：
+		empty：无标签体，只能作为空标签使用。
+		sriptless：标签体可以是静态的HTML元素、EL，但不可以是JSP脚本。
+		JSP：标签体可以使用JSP脚本，实际上JSP2之后标签中已经不推荐使用JSP脚本了。
+		-->
+		<body-content>empty</body-content>
+	</tag>
+	
+	<!-- 带属性的tag -->
+	<tag>
+		<name>withAttribute</name>
+		<tag-class>taglib.WithAttributeTag</tag-class>
+		<body-content>empty</body-content>
+		<!-- 配置标签属性，有几个属性就有几个 attribute -->
+		<attribute>
+			<!-- 设置属性名 -->
+			<name>cases</name>
+			<!-- 设置属性是否是必需属性 -->
+			<required>true</required>
+			<!-- 设置属性是否支持JSP脚本、表达式等内容 -->
+			<fragment>false</fragment>
+		</attribute>
+	</tag>
+	
+	<!-- 带标签体的tag -->
+	<tag>
+		<name>iterator</name>
+		<tag-class>taglib.WithBodyTag</tag-class>
+		<body-content>scriptless</body-content>
+		<attribute>
+			<name>collection</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>item</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+</taglib>

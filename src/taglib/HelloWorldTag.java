@@ -4,6 +4,8 @@
 package taglib;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
@@ -20,6 +22,8 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
  */
 public class HelloWorldTag extends SimpleTagSupport {// 必须继承自 SimpleTagSupport
 
+	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	
 	/**
 	 * 重写doTag()方法，这个方法负责生成页面内容
 	 * 
@@ -28,6 +32,6 @@ public class HelloWorldTag extends SimpleTagSupport {// 必须继承自 SimpleTagSupp
 	@Override
 	public void doTag() throws JspException, IOException {
 		// 获取JSP页面输出流并输出字符串
-		getJspContext().getOut().write("Hello world.");
+		getJspContext().getOut().write("Hello world. Now is " + formatter.format(new Date()));
 	}
 }

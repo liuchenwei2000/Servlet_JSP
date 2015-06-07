@@ -62,7 +62,7 @@ public class FilterTest implements Filter {// 必须实现Filter
 		// session 中没有user信息则认为尚未登录
 		if (session.getAttribute("user") == null && !servletPath.endsWith(loginPage)) {
 			request.setAttribute("提示", "您还没有登录。");
-			// 转到登录界面
+			// 直接跳转到登录界面，不再将请求向后传递
 			request.getRequestDispatcher(loginPage).forward(request, response);
 		} else {
 			// Filter只是链式处理，请求依然被放行到目的地址。

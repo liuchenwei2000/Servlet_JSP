@@ -4,7 +4,8 @@
 <title>The first web app.</title>
 </head>
 <body>
-	<form action="country.do" method="post">
+	<!-- URLRewiter 实现伪静态 -->	
+	<form action="re_country.html" method="post">
 		<select name="country">
 			<option value="china">China</option>
 			<option value="usa">USA</option>
@@ -13,9 +14,11 @@
 	</form>
 	<a href="fileupload.html">上传文件</a>
 	<a href="download.do">下载文件</a>
+	<!-- URLRewiter 实现伪静态 -->
+	<a href="re_jnditest.html">测试JNDI</a>
 	<br>
-	<a href="jnditest.do">测试JNDI</a>
 	<a href="allinone.html">All In One 展现（frameset）</a>
 	<a href="allinone2.html">All In One 展现（iframe）</a>
+	<a href="tagdemo.jsp">自定义标签示例</a>
 </body>
 </html>

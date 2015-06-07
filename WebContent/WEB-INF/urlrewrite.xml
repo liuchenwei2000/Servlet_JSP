@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE urlrewrite
+    PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN"
+    "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+	<!-- 所有发向 /re_(.*).html 的请求都将会被forward到 *.do 页面。 -->
+    <rule>
+        <from>/re_(.*).html</from>
+        <!-- $1 表示第一个正则表达式所匹配到的字符串 -->
+        <to>/$1.do</to> 
+    </rule>
+
+</urlrewrite>

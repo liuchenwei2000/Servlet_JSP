@@ -1,18 +1,17 @@
 
-Filter 可认为是Servlet的一种增强版，主要用于对用户请求进行预处理，也可以对相应进行后处理，是个典型的处理链。
-Filter也可对用户请求生成响应，这点与Servlet相同，但实际上很少这么做。
+Filter 可认为是Servlet的一种增强版，主要用于对用户请求进行预处理，也可以对响应进行后处理，是个典型的处理链。
 
 使用Filter完整的流程是：Filter对用户请求进行预处理，然后将请求交给Servlet进行处理并生成响应，最后Filter再对服务器响应进行后处理。
 
 Filter的用处：
 1，在HttpServletRequest到达Servlet之前进行拦截，根据需要检查HttpServletRequest，也可以修改HttpServletRequest头和数据。
-2，在HttpServletResponse到达客户端之前进行拦截，根据需要检查HttpServletResponse，也可以修改HttpServletRequest头和数据。
+2，在HttpServletResponse到达客户端之前进行拦截，根据需要检查HttpServletResponse，也可以修改HttpServletResponse头和数据。
 
 Filter具体有如下几个种类：
 1，用户授权Filter：负责检查用户请求，根据请求过滤用户非法请求。
 2，日志Filter：详细记录某些特殊的用户请求。
 3，负责解码的Filter：对非标准编码的请求编码。
 4，能改变XML内容的XSLT Filter等。
-5，Filter可负责拦截多个请求或响应；一个请求或响应也可被多个Filter拦截。
 
-示例见 src/filter 包。
+
+Filter可负责拦截多个请求或响应；一个请求或响应也可被多个Filter拦截。示例见 src/filter 包。

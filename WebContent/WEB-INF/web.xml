@@ -47,6 +47,36 @@
 	   <filter-name>filterdemo</filter-name>
 	   <!-- Filter负责拦截的URL，* 表示全部拦截 -->
 	   <url-pattern>/*</url-pattern>
+	   <!--  
+	   dispatcher：指定只拦截资源被 Servlet 容器调用的哪种方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。
+	       可以设置多个<dispatcher> 子元素用来指定 Filter 对资源的多种调用方式进行拦截。
+	       
+	   REQUEST：
+	        当用户直接访问页面时，Web容器将会调用过滤器。如果目标资源是通过RequestDispatcher的include()或forward()方法访问或ERROR情况时，那么该过滤器就不会被调用。
+ 	   INCLUDE：
+ 	        如果目标资源是通过RequestDispatcher的include()方法访问时，那么该过滤器将被调用。除此之外，该过滤器不会被调用。
+	   FORWARD：
+	        如果目标资源是通过RequestDispatcher的forward()方法访问时，那么该过滤器将被调用，除此之外，该过滤器不会被调用。
+	   ERROR：
+	        如若在A.jsp页面page指令中指定了error属性=examError.jsp，那么A.jsp中若出现了异常，会跳转到examError.jsp中处理。
+	        而在跳转到examError.jsp时，若过滤器配置了ERROR的dispather那么则会拦截，否则不会拦截。
+	   -->
+	   <dispatcher>FORWARD</dispatcher>
+	   <dispatcher>INCLUDE</dispatcher>
+	   <dispatcher>REQUEST</dispatcher>
+	   <dispatcher>ERROR</dispatcher>
+	</filter-mapping>
+
+	<!-- 配置UrlRewriteFilter  -->
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
 	
 	<!-- 配置listener -->

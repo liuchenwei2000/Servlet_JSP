@@ -1,0 +1,4 @@
+
+JSP脚本中包含9个内置对象application、config、request、response、page、pageContext、out、session、exception，
+这些内置对象都是Servlet API接口的实例，只是JSP规范对它们进行了默认初始化，由JSP页面对应Servlet的_jspService()方法来创建这些实例，
+因此它们只能在JSP脚本、JSP输出表达式中使用这些内置对象，而不能在JSP声明中使用它们。

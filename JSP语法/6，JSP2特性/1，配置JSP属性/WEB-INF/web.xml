@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+  version="3.0">
+  
+  <!-- 关于应用中JSP的配置信息 -->
+  <jsp-config>
+  	<!-- 
+  	统一的JSP属性定义使用<jsp-property-group>元素配置，可以有多个；
+  	每个元素配置一组JSP属性，用于指定哪些JSP页面应该满足怎样的规则。
+  	-->
+  	<jsp-property-group>
+  		<!-- 对那些文件应用配置 -->
+  		<url-pattern>/noscript/*</url-pattern>
+  		<!-- 是否允许使用表达式语言（EL），默认值为false，即允许使用表达式语言。 -->
+  		<el-ignored>true</el-ignored>
+  		<!-- 声明JSP页面的编码，可以代替每个页面里page指令contentType属性的charset部分。 -->
+  		<page-encoding>GBK</page-encoding>
+  		<!-- 是否允许使用JSP脚本，默认值是false，即允许使用JSP脚本。 -->
+  		<scripting-invalid>true</scripting-invalid>
+  		<!-- 使用隐式包含，可以代替在每个页面里使用include编译指令来包含其他页面。 -->
+  		<!-- include-prelude 隐式导入页面头 -->
+  		<include-prelude>/top.jspf</include-prelude>
+  		<!-- include-coda 隐式导入页面尾 -->
+  		<include-coda>/bottom.jspf</include-coda>
+  	</jsp-property-group>
+  	
+  	<jsp-property-group>
+  		<url-pattern>*.jsp</url-pattern>
+  		<el-ignored>false</el-ignored>
+  		<page-encoding>GBK</page-encoding>
+  		<scripting-invalid>false</scripting-invalid>
+  	</jsp-property-group>
+  	
+  </jsp-config>
+
+</web-app>

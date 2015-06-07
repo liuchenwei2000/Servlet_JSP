@@ -3,7 +3,8 @@
 
 xxx.jsp?param=value...
 
-大部分搜索引擎都会优先考虑收录静态的HTML页面，因此互联网上的大部分网站都会考虑使用伪静态————就是将*.jsp这种动态URL伪装成静态的HTML页面。
+因为大部分搜索引擎都会优先考虑收录静态的html页面，而不是动态的jsp、php页面。但实际上绝大部分网站都是动态的，
+不可能全部是静态的html页面，因此互联网上的大部分网站都会使用伪静态——就是将jsp、php这种动态URL伪装成静态的html页面。
 
-对于Java Web应用而言，要实现伪静态非常简单：可以通过Filter拦截所有发向*.html的请求，然后按某种规则将请求forward到实际的*.jsp页面即可。
-URL Rewriter开源项目是一个可用的实现。
+对于JavaWeb应用而言，可以通过Filter拦截所有发向*.html请求，然后按某种规则将请求forward到实际的JSP页面即可。
+URL Rewriter开源项目是一个可用的实现，使用详见web.xml中对UrlRewriteFilter的配置以及urlrewirte.xml文件。
