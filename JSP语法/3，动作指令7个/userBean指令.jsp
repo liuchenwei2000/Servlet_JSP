@@ -21,7 +21,7 @@ getProperty指令用于获取JavaBean实例的属性。
 		session：本次session有效。
 		application：本应用有效。
 		-->
-		<jsp:useBean id="mybean" class="login.User" scope="page" />
+		<jsp:useBean id="mybean" class="javabean.User" scope="page" />
 		
 		<!-- 
 		JSP的setProperty指令的格式如下：
