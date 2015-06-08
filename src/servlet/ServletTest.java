@@ -59,6 +59,10 @@ public class ServletTest extends HttpServlet {// 必须继承HttpServlet
 		String password = servletConfig.getInitParameter("password");
 		System.out.println("id=" + id);
 		System.out.println("password=" + password);
+
+		// 下面的方式可以获取当前应用在服务器上的绝对路径
+		String realPath = getServletContext().getRealPath("");
+		System.out.println("servlet real path=" + realPath);
 	}
 
 	/**

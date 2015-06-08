@@ -41,7 +41,7 @@ public class CountryServlet extends HttpServlet {
 		req.setAttribute("area", area);
 		req.setAttribute("country", country);
 		
-		// 服务器端请求转发，转发给View
+		// 服务器端请求转发，转发给View（具体可以是JSP、Servlet或HTML）
 		RequestDispatcher dispatcher = req.getRequestDispatcher("country.jsp");
 		dispatcher.forward(req, resp);
 	}
