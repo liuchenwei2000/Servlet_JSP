@@ -1,4 +1,7 @@
-<%-- application：javax.servlet.ServletContext的实例，该实例代表JSP所属的Web应用本身。 --%>
+<%-- 
+application：javax.servlet.ServletContext的实例，该实例代表JSP所属的Web应用本身。 
+适用于在同一个应用程序中每个用户间共享数据，通常应用在计数器或聊天室中。
+--%>
 <%@ page contentType="text/html;charset=GBK" language="java" %>
 <%-- 
 该对象通常有两个用途：
