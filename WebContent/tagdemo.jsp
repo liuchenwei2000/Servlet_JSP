@@ -26,5 +26,20 @@
 				${pageScope.item}
 			<br>		
 		</mt:iterator>
+		<br><br>
+		<!-- fragment 标签 -->
+		Fragment 标签：<br>
+		<mt:border>
+			<jsp:attribute name="content">
+				<%-- 使用 jsp:attribute 动作为页面片段属性 content 传入参数值 <mt:helloworld/>  --%>
+				<!-- 下面是动态的 JSP 页面片段 -->
+				<mt:helloworld/>
+			</jsp:attribute>
+		</mt:border>
+		<br><br>
+		<!-- 动态属性 标签，使用时十分灵活，可以根据需要动态地传入任意多个属性。 -->
+		动态属性 标签：<br>
+		<mt:multi name="vicliu" age="27" email="liuchenwei@gmail.com" />
+		<br><br>
 </body>
 </html>

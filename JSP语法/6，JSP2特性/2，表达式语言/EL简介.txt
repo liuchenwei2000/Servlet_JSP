@@ -1,6 +1,0 @@
-
-表达式语言（EL：Expression Language）是一种简化的数据访问方式，使用表达式语言可以方便地访问JSP的隐含对象和JavaBean组件。
-在JSP2规范中，建议尽量使用EL使JSP文件的格式一致，避免使用Java脚本。
-EL可用于简化JSP页面的开发，允许美工设计人员使用EL的语法获取业务逻辑组件传过来的变量值。
-
-EL的语法格式：${expression}

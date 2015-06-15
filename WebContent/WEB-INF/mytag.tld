@@ -18,7 +18,7 @@ TLDÊÇTag Library DefinitionµÄËõĞ´£¬ÎÄ¼şºó×ºÊÇtld£¬Ã¿¸ötldÎÄ¼ş¶ÔÓ¦Ò»¸ö±êÇ©¿â£¬Ò»¸
 	<!-- Ö¸¶¨¸Ã±êÇ©¿âµÄURI£¬Ïàµ±ÓÚ±êÇ©¿âµÄÎ¨Ò»±êÊ¶¡£JSPÒ³ÃæÖĞÊ¹ÓÃ±êÇ©Ê±¾ÍÊÇ¸ù¾İURIÊôĞÔÀ´¶¨Î»±êÇ©¿âµÄ¡£ -->
 	<uri>http://taglib.mytag.com</uri>
 
-	<!-- ²»´øÊôĞÔµÄ¼òµ¥tag -->
+	<!-- 1£¬²»´øÊôĞÔµÄ¼òµ¥tag -->
 	<tag>
 		<description> Display Hello world </description>
 		<!-- ±êÇ©Ãû³Æ£¬JSPÒ³ÃæÖĞ¸ù¾İ´ËÃû³ÆÀ´Ê¹ÓÃ±êÇ©¡£ -->
@@ -34,7 +34,7 @@ TLDÊÇTag Library DefinitionµÄËõĞ´£¬ÎÄ¼şºó×ºÊÇtld£¬Ã¿¸ötldÎÄ¼ş¶ÔÓ¦Ò»¸ö±êÇ©¿â£¬Ò»¸
 		<body-content>empty</body-content>
 	</tag>
 	
-	<!-- ´øÊôĞÔµÄtag -->
+	<!-- 2£¬´øÊôĞÔµÄtag -->
 	<tag>
 		<name>withAttribute</name>
 		<tag-class>taglib.WithAttributeTag</tag-class>
@@ -50,10 +50,11 @@ TLDÊÇTag Library DefinitionµÄËõĞ´£¬ÎÄ¼şºó×ºÊÇtld£¬Ã¿¸ötldÎÄ¼ş¶ÔÓ¦Ò»¸ö±êÇ©¿â£¬Ò»¸
 		</attribute>
 	</tag>
 	
-	<!-- ´ø±êÇ©ÌåµÄtag -->
+	<!-- 3£¬´ø±êÇ©ÌåµÄtag -->
 	<tag>
 		<name>iterator</name>
 		<tag-class>taglib.WithBodyTag</tag-class>
+		<!-- ±êÇ©Ìå²»ÔÊĞíÊ¹ÓÃJSP script -->
 		<body-content>scriptless</body-content>
 		<attribute>
 			<name>collection</name>
@@ -63,5 +64,29 @@ TLDÊÇTag Library DefinitionµÄËõĞ´£¬ÎÄ¼şºó×ºÊÇtld£¬Ã¿¸ötldÎÄ¼ş¶ÔÓ¦Ò»¸ö±êÇ©¿â£¬Ò»¸
 			<name>item</name>
 			<required>true</required>
 		</attribute>
+	</tag>
+	
+	<!-- 4£¬fragmentÊôĞÔµÄtag -->
+	<tag>
+		<name>border</name>
+		<tag-class>taglib.FragmentTag</tag-class>
+		<!-- ²»Ö§³Ö±êÇ©Ìå -->
+		<body-content>empty</body-content>
+		<attribute>
+			<name>content</name>
+			<required>true</required>
+			<!-- ÊôĞÔÖ§³Ö Ò³ÃæÆ¬¶Î -->
+			<fragment>true</fragment>
+		</attribute>
+	</tag>
+	
+	<!-- 5£¬¶¯Ì¬ÊôĞÔµÄtag -->
+	<tag>
+		<name>multi</name>
+		<tag-class>taglib.DynamicAttributesTag</tag-class>
+		<!-- ²»Ö§³Ö±êÇ©Ìå -->
+		<body-content>empty</body-content>
+		<!-- Ö¸¶¨Ö§³Ö¶¯Ì¬ÊôĞÔ -->
+		<dynamic-attributes>true</dynamic-attributes>
 	</tag>
 </taglib>

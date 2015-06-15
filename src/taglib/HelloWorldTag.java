@@ -11,7 +11,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
- * 一个简单的自定义标签类
+ * 1，一个简单的自定义标签类
  * <p>
  * 在JSP页面使用一个简单的标签时，底层实际上由标签处理类提供支持，
  * 从而可以通过简单的标签来封装复杂的功能，从而使团队更好地协作开发（美工参与JSP页面的开发）。
@@ -32,6 +32,6 @@ public class HelloWorldTag extends SimpleTagSupport {// 必须继承自 SimpleTagSupp
 	@Override
 	public void doTag() throws JspException, IOException {
 		// 获取JSP页面输出流并输出字符串
-		getJspContext().getOut().write("Hello world. Now is " + formatter.format(new Date()));
+		getJspContext().getOut().println("Hello world. Now is " + formatter.format(new Date()));
 	}
 }

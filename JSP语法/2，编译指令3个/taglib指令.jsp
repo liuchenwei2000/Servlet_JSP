@@ -9,7 +9,7 @@ uri 属性：确定标签库的URI，与tld文件中的uri对应。
 -->
 <%@ taglib prefix="mytag" uri="http://taglib.mytag.com" %>
 <!-- 引入 JSTL 核心标签库 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,7 +30,7 @@ uri 属性：确定标签库的URI，与tld文件中的uri对应。
 			<!-- 使用标签，格式如 tagPrefix:tagName... -->
 			<mytag:helloworld />
 			<!-- 使用带属性的标签，并为属性设置 -->
-			<mytag:attribute cases="upper" />
+			<mytag:withAttribute cases="upper" />
 			<!-- 使用带标签体的标签 -->
 			<mytag:iterator collection="a" item="item" >
 				<tr>
