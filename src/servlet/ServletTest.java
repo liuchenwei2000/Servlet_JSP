@@ -60,9 +60,16 @@ public class ServletTest extends HttpServlet {// 必须继承HttpServlet
 		System.out.println("id=" + id);
 		System.out.println("password=" + password);
 
+		// 获取请求的参数值，"emmail" 这个参数与 HTML 中标签的"name"属性的值匹配
+		req.getParameter("email");
+
 		// 下面的方式可以获取当前应用在服务器上的绝对路径
 		String realPath = getServletContext().getRealPath("");
 		System.out.println("servlet real path=" + realPath);
+		
+		// 容器运行多个线程来处理对一个servlet的多个请求，对应每个客户请求，会生成一对新的请求和响应对象。
+		// service() 类的方法结束后，线程要么销毁要么返回给容器管理的线程池。
+		// 请求和响应对象引用已经出了作用域，所以这些对象已经没有意义，将会被垃圾回收。
 	}
 
 	/**
