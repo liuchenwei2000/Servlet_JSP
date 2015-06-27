@@ -179,4 +179,14 @@
 	   <url-pattern>/jnditest.do</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+	   <servlet-name>ResponseTest</servlet-name>
+	   <servlet-class>servlet.ResponseTest</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	   <servlet-name>ResponseTest</servlet-name>
+	   <url-pattern>/responsetest.do</url-pattern>
+	</servlet-mapping>
+
 </web-app>
