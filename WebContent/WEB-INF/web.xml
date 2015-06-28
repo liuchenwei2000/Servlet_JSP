@@ -98,7 +98,7 @@
     </resource-ref>
 
 	<session-config>
-		<!-- session 超时设置，单位为分钟 -->
+		<!-- 全局 session 超时设置，单位为分钟 -->
 		<session-timeout>1</session-timeout>
 	</session-config>
     
