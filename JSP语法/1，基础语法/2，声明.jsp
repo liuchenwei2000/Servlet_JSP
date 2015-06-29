@@ -15,8 +15,13 @@ JSP声明的语法格式如下：
 	<body>
 		<%! private int count = 0;  %>
 		<%! 
-			public void print(String s){
+			// 可以是 static 方法
+			public static void print(String s){
 			    System.out.println(s);
+			}
+		
+			public int getCount(){
+		    	return count;
 			}
 		%>
 	</body>
