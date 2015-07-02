@@ -10,7 +10,7 @@ package javabean;
  * 
  * 创建日期：2015年6月8日
  */
-public class User {
+public class User implements IUser {
 
 	private String name;
 	private int age;
