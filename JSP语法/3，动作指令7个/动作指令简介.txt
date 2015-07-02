@@ -12,3 +12,7 @@ jsp:plugin：用于下载 JavaBean 或 Applet 到客户端执行。
 jsp:useBean：创建一个 JavaBean 的实例。
 jsp:setProperty：设置 JavaBean 的属性值。
 jsp:getProperty：获取 JavaBean 的属性值。
+
+这些动作指令并不能包办所有的功能，比如如果想在 JSP 中访问一个 bean 对象的属性，可以直接用 就是jsp:getProperty 即可，但无法访问 bean 对象属性的属性。
+比如 Person 对象有个 Address 类型的属性 address，address 又有自己的属性 String 类型的 street，只通过 JSP 动作是不能够访问 street 属性的。
+要想解决这个问题，要么使用 scriptlet 直接用 Java 代码进行访问，要么使用 JSP 2.0 推荐的 表达式语言（EL）。EL 访问嵌套属性非常简单，详见 Servlet3_JSP2 项目。 
