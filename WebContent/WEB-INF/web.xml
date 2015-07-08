@@ -55,10 +55,17 @@
 	
 	<filter-mapping>
 	   <filter-name>filterdemo</filter-name>
-	   <!-- Filter负责拦截的URL，* 表示全部拦截 -->
+	   <!-- 
+	   <url-pattern> 或 <servlet-name> 元素这两者中必须有一个：
+	   <url-pattern>：定义了哪些 Web 应用资源要使用这个过滤器。
+	   <servlet-name>：定义了哪个 servlet 要使用这个过滤器。
+	   
+	        当多个过滤器映射到一个给定资源时，容器会先找到与 URL模式匹配的所有过滤器，然后才是与  <servlet-name> 匹配的过滤器。 
+	   -->
+	   <!-- Filter负责拦截的URL，* 表示全部拦截。 -->
 	   <url-pattern>/*</url-pattern>
 	   <!--  
-	   dispatcher：指定只拦截资源被 Servlet 容器调用的哪种方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。
+	   <dispatcher>：指定只拦截资源被 Servlet 容器调用的哪种方式，可以是REQUEST,INCLUDE,FORWARD和ERROR之一，默认REQUEST。
 	       可以设置多个<dispatcher> 子元素用来指定 Filter 对资源的多种调用方式进行拦截。
 	       
 	   REQUEST：
@@ -82,6 +89,7 @@
 		<filter-name>UrlRewriteFilter</filter-name>
 		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>UrlRewriteFilter</filter-name>
 		<url-pattern>/*</url-pattern>
