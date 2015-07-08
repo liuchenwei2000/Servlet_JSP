@@ -20,7 +20,17 @@
 	      <param-name>password</param-name>
 	      <param-value>ttoomm</param-value>
 	   </init-param>
-	   <!-- 指定servlet在Web容器启动时就会被实例化，默认情况下，servlet会在第一次请求到来时被实例化。 -->
+	   
+	   <!--
+	        默认情况下，servlet会在第一次请求到来时被实例化。
+	        如果希望在部署时（或在服务器重启时）加载 servlet，而不是等到第一个请求到来时才加载，可以使用 <load-on-startup> 元素。
+	        如果<load-on-startup> 的值非负，就是告诉容器要在应用部署时（或服务器重启时）初始化 servlet。
+	        
+	        如果想预加载多个 servlet，而且想控制它们的初始化顺序，完全可以靠 <load-on-startup> 的值来决定顺序。
+	        非负值意味着要预先加载，但加载的具体顺序则取决于不同 <load-on-startup> 元素的值，值越小优先级越高，值一样则按 servlet 出现顺序来加载。
+	        
+	        一般很少使用的 servlet 不需要提前加载，而那些初始化耗时太长的 servlet 往往需要预先加载。
+	   -->
 	   <load-on-startup>1</load-on-startup>
 	</servlet>
 	
@@ -148,7 +158,6 @@
 	   <url-pattern>/images/*</url-pattern>
 	</filter-mapping>
 	
-	
 	<servlet>
 	   <servlet-name>countryServlet</servlet-name>
 	   <servlet-class>servlet.demo.CountryServlet</servlet-class>
@@ -189,4 +198,54 @@
 	   <url-pattern>/responsetest.do</url-pattern>
 	</servlet-mapping>
 
+	<!--  
+	配置欢迎文件
+	
+	如果为各个Web应用配置默认页面（也成为欢迎页面）？可以在 web.xml 中进行配置，当客户输入一部分URL时，容器要决定选择哪个页面。
+	所谓部分URL是指这个URL只有一部分（比如一个目录），而不包括目录中的特定资源（比如 http://www.myapp.com/foo/bar）。
+	
+	假设某个Web应用，其中多个不同的目录有其自己默认HTML页面，名为“index.html”；而另外一些目录使用的是“default.jsp”，
+	可以通过在 web.xml 中使用 <welcome-file-list> 进行统一配置。这样一来，不论请求哪个目录，容器总是按同一个列表查找，也就是这个唯一的 <welcome-file-list>。
+	容器会从 <welcome-file-list> 所列的第一个欢迎文件开始，选择找到的第一个进行匹配。
+	-->
+	<welcome-file-list>
+		<!-- 注意，文件名不以斜线 / 开头 -->
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>home.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 
+	配置错误页面 
+	
+	可以使用 	<error-page> 配置统一的错误页面，共有如下三种方式：
+	-->
+	
+	<!-- 1，声明一个普遍型的错误页面 -->
+	<error-page>
+		<!-- <exception-type> 可以声明的异常类型包括  java.lang.Throwable 的所有子类型。-->
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error.jsp</location>
+	</error-page>
+	
+	<!-- 2，为更明确的异常声明一个错误页面 -->
+	<error-page>
+		<!-- 
+		即便有 1 的存在，当遇到 NullPointerException 时，页面也会自动跳转到 npeError.jsp，其他异常将跳转到 error.jsp。  
+		这里的异常类必须是完全限定类名。
+		-->
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/npeError.jsp</location>
+	</error-page>
+	
+	<!-- 
+	3，根据一个 HTTP 状态码声明错误页面 
+	
+	可以根据 HTTP 状态码或根据抛出的异常类型配置错误页面，但不能在一个 <error-page> 标记中同时使用这两个。
+	-->
+	<error-page>
+		<!-- 当响应的状态码是 404 时才调用这个错误页面。 -->
+		<error-code>404</error-code>
+		<location>/notFoundError.jsp</location>
+	</error-page>
 </web-app>

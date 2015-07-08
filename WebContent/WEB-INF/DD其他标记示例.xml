@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+
+	<!-- 
+	1,EJB 相关配置 
+
+	如果在部署一个 JavaEE 应用时，业务层使用了EJB，一些 Web 组件可能就需要查找和访问 EJB。 
+	如果在一个完备的 JavaEE 容器中部署应用，可以通过如下配置对 EJB 的引用。
+	-->
+	
+	<!-- 
+	本地 bean 的引用 
+	
+	本地 bean 是指客户（即 servlet）和 bean 必须在同一个 JVM 中运行。
+	-->
+	<ejb-local-ref>
+		<!-- 要使用 JNDI 查找名 -->
+		<ejb-ref-name>ejb/Customer</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>
+		<!-- 下面这些必须是 bean 的公开接口和完全限定名 -->
+		<local-home>com.ejbtest.CustomerHome</local-home>
+		<local>com.ejbtest.Customer</local>
+	</ejb-local-ref>
+	
+	<!-- 
+	远程 bean 的引用 
+	
+	远程 bean 是指客户（即 servlet）和 bean 在不同的 JVM 中运行，可能还在不同的物理主机上。
+	-->
+	<ejb-ref>
+		<!-- 要使用 JNDI 查找名 -->
+		<ejb-ref-name>ejb/LocalCustomer</ejb-ref-name>
+		<ejb-ref-type>Entity</ejb-ref-type>
+		<!-- 下面这些必须是 bean 的公开接口和完全限定名 -->
+		<home>com.ejbtest.CustomerHome</home>
+		<remote>com.ejbtest.Customer</remote>
+	</ejb-ref>
+
+	<!-- 
+	2,JNDI 相关配置 
+	
+	可以把环境项认为是应用可以使用的某种部署时常量，部署人员可以通过环境项把值传入 servlet。
+	或者如果 EJB 作为企业应用的一部分部署在一个 JavaEE 应用服务器中，也可以通过环境项将值传入 EJB。
+	
+	在部署时，容器读取DD，使用DD标记中提供的名和值，建立一个 JNDI 项。
+	在运行时，应用中的组件可以使用 DD 中所列的名字在 JNDI 中查找值。
+	-->
+
+	<env-entry>
+		<!-- 代码中使用的查找名。 -->
+		<env-entry-name>rates/discountRate</env-entry-name>
+		<!-- 可以是任何类型，只要这种类型取一个 String 作为构造函数参数就行，但不能是基础类型。 -->
+		<env-entry-type>java.lang.Integer</env-entry-type>
+		<!-- 这里的值会作为一个 String 传入。 -->
+		<env-entry-value>10</env-entry-value>
+	</env-entry>
+
+	<!-- 
+	3,MIME 相关配置 
+	
+	mime-mapping 元素将 mime 类型映射到扩展名，用于规定下载格式（浏览器就会根据配置的类型自动调用相应的程序打开）。
+	-->
+
+	<mime-mapping>
+		<!-- 文件扩展名，不包括 点 . -->
+		<extension>doc</extension>
+		<mime-type>application/msword</mime-type>
+	</mime-mapping>
+	
+	<mime-mapping>
+		<extension>xls</extension>
+		<mime-type>application/vnd.ms-excel</mime-type>
+	</mime-mapping>
+	
+	<mime-mapping>
+		<extension>ppt</extension>
+		<mime-type>application/vnd.ms-powerpoint</mime-type>
+	</mime-mapping>
+</web-app>
