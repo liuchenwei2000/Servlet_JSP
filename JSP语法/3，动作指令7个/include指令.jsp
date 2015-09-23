@@ -4,15 +4,13 @@ includeÖ¸ÁîÊÇ¶¯Ì¬°üº¬Ö¸Áî£¬ÓÃÓÚ°üº¬Ä³¸öÒ³Ãæ£¬±»°üº¬µÄÒ³Ãæ¿ÉÒÔÊÇ¾²Ì¬Ò³Ãæ»ò¶¯Ì¬Ò³Ã
 --%>
 <%@ page contentType="text/html;charset=GBK" language="java" %>
 <%-- 
-ÔÚJSPÉú³ÉµÄservletÖÐ£¬¶¯Ì¬µ¼ÈëÖ»ÊÇÊ¹ÓÃÒ»¸öinclude·½·¨À´²åÈëÄ¿±êÒ³ÃæµÄÄÚÈÝ£¬¶ø²»ÊÇ½«Ä¿±êÒ³Ãæ´úÂëÍêÈ«¿½±´µ½±¾Ò³ÃæÖÐ¡£Ô­ÀíÈçÏÂ£º
+ÔÚJSPÉú³ÉµÄservletÖÐ£¬¶¯Ì¬°üº¬Ö»ÊÇÊ¹ÓÃÒ»¸öinclude·½·¨À´²åÈëÄ¿±êÒ³ÃæµÄÄÚÈÝ£¬¶ø²»ÊÇ½«Ä¿±êÒ³Ãæ´úÂëÍêÈ«¿½±´µ½±¾Ò³ÃæÖÐ¡£
+Ëü»áÔÚÔËÐÐÊ±²åÈë±»°üº¬Ò³ÃæµÄÏìÓ¦£¬±»°üº¬Ò³ÃæÕë¶ÔÍ¬ÑùµÄÇëÇóºÍÏìÓ¦¶ÔÏóÖ´ÐÐ£¬¶øÇÒÔÚÍ¬Ò»Ïß³ÌÖÐÔËÐÐ¡£
 
-µ±ä¯ÀÀÆ÷µÚÒ»´ÎÇëÇóÒ»¸öÊ¹ÓÃ<jsp:include>°üº¬ÆäËûÒ³ÃæµÄÒ³ÃæÊ±£¬WebÈÝÆ÷Ê×ÏÈ»á±àÒë±»°üº¬µÄÒ³Ãæ£¬È»ºó½«±àÒë´¦ÀíºóµÄ·µ»Ø½á¹û°üº¬ÔÚÒ³ÃæÖÐ£¬
-Ö®ºóÔÙ±àÒë°üº¬Ò³Ãæ£¬×îºó½«Á½¸öÒ³Ãæ×éºÏµÄ½á¹ûÏìÓ¦¸øä¯ÀÀÆ÷¡££¨ÒòÎª¾²Ì¬Ò³Ãæ²»ÐèÒª±àÒë¼´¿É±»WebÈÝÆ÷½âÎö£¬ËùÒÔËü²»»á¾­Àú±àÒë´¦ÀíµÄ¹ý³Ì¡££©
+Ô­ÀíÈçÏÂ£º
 
-¾²Ì¬µ¼Èë(inlcude±àÒëÖ¸Áî)ºÍ¶¯Ì¬µ¼Èë(inlcude¶¯×÷Ö¸Áî)µÄÇø±ð£º
-1£¬¾²Ì¬µ¼ÈëÊÇ½«±»µ¼ÈëÒ³ÃæµÄ´úÂëÍêÈ«¿½±´ÈÚÈë£¬Á½¸öÒ³ÃæÈÚºÏ³ÉÒ»¸öÕûÌåServlet£»¶ø¶¯Ì¬µ¼ÈëÔòÔÚServletÖÐÊ¹ÓÃinclude·½·¨À´ÒýÈë±»µ¼ÈëÒ³ÃæµÄÄÚÈÝ¡£
-2£¬¾²Ì¬µ¼ÈëÊ±±»µ¼ÈëÒ³ÃæµÄ±àÒëÖ¸Áî»áÆð×÷ÓÃ£»¶ø¶¯Ì¬µ¼ÈëÊ±±»µ¼ÈëÒ³ÃæµÄ±àÒëÖ¸ÁîÔòÊ§È¥×÷ÓÃ£¬Ö»ÊÇ²åÈë±»µ¼ÈëÒ³ÃæµÄbodyÄÚÈÝ¡£
-3£¬¶¯Ì¬µ¼Èë»¹¿ÉÒÔÔö¼Ó¶îÍâµÄ²ÎÊý¡£
+µ±ä¯ÀÀÆ÷µÚÒ»´ÎÇëÇóÒ»¸öÊ¹ÓÃ<jsp:include>°üº¬ÆäËûÒ³ÃæµÄJSPÊ±£¬WebÈÝÆ÷Ê×ÏÈ»á±àÒë±»°üº¬µÄÒ³Ãæ£¬È»ºó½«±àÒë´¦ÀíºóµÄ·µ»Ø½á¹û°üº¬ÔÚÒ³ÃæÖÐ£¬
+Ö®ºóÔÙ±àÒë°üº¬Ò³Ãæ£¬×îºó½«Á½¸öÒ³Ãæ×éºÏµÄÏìÓ¦½á¹û·µ»Ø¸øä¯ÀÀÆ÷¡££¨ÒòÎª¾²Ì¬Ò³Ãæ²»ÐèÒª±àÒë¼´¿É±»WebÈÝÆ÷½âÎö£¬ËùÒÔËü²»»á¾­Àú±àÒë´¦ÀíµÄ¹ý³Ì¡££©
 --%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +25,7 @@ includeÖ¸ÁîÊÇ¶¯Ì¬°üº¬Ö¸Áî£¬ÓÃÓÚ°üº¬Ä³¸öÒ³Ãæ£¬±»°üº¬µÄÒ³Ãæ¿ÉÒÔÊÇ¾²Ì¬Ò³Ãæ»ò¶¯Ì¬Ò³Ã
 		page ÊôÐÔ£ºÖ¸¶¨±»°üº¬ÎÄ¼þµÄÏà¶ÔÂ·¾¶¡£
 		-->
 		<jsp:include page="result.jsp">
-			<!-- jsp:param ÓÃÓÚÔÚÔö¼Ó¶îÍâµÄÇëÇó²ÎÊý£¬²ÎÊýÖµ¿ÉÒÔÍ¨¹ýHttpServletRequestÀàµÄgetParamter()·½·¨»ñÈ¡¡£ -->
+			<!-- jsp:param ÓÃÓÚÔÚÔö¼Ó¶îÍâµÄÇëÇó²ÎÊý£¬²ÎÊýÖµ¿ÉÒÔÍ¨¹ý HttpServletRequest ÀàµÄ getParamter() ·½·¨»ñÈ¡¡£ -->
 			<jsp:param name="age" value="22" />
 		</jsp:include>
 	</body>

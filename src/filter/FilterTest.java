@@ -29,6 +29,7 @@ import javax.servlet.http.HttpSession;
  */
 public class FilterTest implements Filter {// 必须实现Filter
 	
+	// 通常需要保存配置对象
 	private FilterConfig config;
 
 	/**
@@ -65,7 +66,10 @@ public class FilterTest implements Filter {// 必须实现Filter
 			// 直接跳转到登录界面，不再将请求向后传递
 			request.getRequestDispatcher(loginPage).forward(request, response);
 		} else {
-			// Filter只是链式处理，请求依然被放行到目的地址。
+			/* 
+			 * Filter只是链式处理，请求依然被放行到目的地址。
+			 * 假设容器能把请求 URL 映射到一个 servlet 或 JSP，那么 FilterChain 尾部总是一个 servlet 或 JSP。
+			 */
 			chain.doFilter(request, response);
 		}
 	}
