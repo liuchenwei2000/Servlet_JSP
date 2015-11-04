@@ -34,7 +34,7 @@
 		 type 可以是具体类型、抽象类型或者接口类型，只要能用作为 bean 对象 class 类型的声明引用类型，都可以指定为 type。
 		 所以，这也意味着，class 指定的类必须是 type 的一个子类或具体实现类。
 		-->
-		<jsp:useBean id="bean2" type="javabean.IUser" class="javabean.User" scope="request" />
+		<jsp:useBean id="bean2" class="javabean.User" scope="request" />
 	</body>
 </html>
 
