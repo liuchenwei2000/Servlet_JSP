@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ¶àÏß³Ì·ÃÎÊ Servlet ÊµÀýÊ±ÈçºÎ°²È«Ïú»Ù Servlet
+ * å¤šçº¿ç¨‹è®¿é—® Servlet å®žä¾‹æ—¶å¦‚ä½•å®‰å…¨é”€æ¯ Servlet
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ18æ—¥
  */
 public class ShutdownExample extends HttpServlet {
 
@@ -25,9 +25,9 @@ public class ShutdownExample extends HttpServlet {
 	 */
 	private static final long serialVersionUID = -1754718382987310869L;
 
-	// Ïß³Ì¼ÆÊýÆ÷£¬¼ÇÂ¼ÓÐ¶àÉÙ¸öÏß³ÌÕýÔÚÖ´ÐÐ±¾ servlet µÄ service() ·½·¨
+	// çº¿ç¨‹è®¡æ•°å™¨ï¼Œè®°å½•æœ‰å¤šå°‘ä¸ªçº¿ç¨‹æ­£åœ¨æ‰§è¡Œæœ¬ servlet çš„ service() æ–¹æ³•
 	private int counter = 0;
-	// ±¾ servlet ÊÇ·ñÒÑ±»ÒªÇó Shutdown
+	// æœ¬ servlet æ˜¯å¦å·²è¢«è¦æ±‚ Shutdown
 	private boolean isShuttingDown;
 
 	public synchronized void enteringServiceMethod() {
@@ -64,20 +64,20 @@ public class ShutdownExample extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// Ä£Äâ³¤Ê±¼äÈÎÎñÖ´ÐÐÊ±£¬Òª²»¶Ï¼ì²é isShuttingDown ±êÖ¾
+		// æ¨¡æ‹Ÿé•¿æ—¶é—´ä»»åŠ¡æ‰§è¡Œæ—¶ï¼Œè¦ä¸æ–­æ£€æŸ¥ isShuttingDown æ ‡å¿—
 		while(!isShuttingDown()){
 			// do something 
 		}
 	}
 
 	/** 
-	 * È·±£ËùÓÐÖ´ÐÐ±¾ servlet.service() ·½·¨µÄÏß³ÌÈ«²¿ÍË³öÖ®ºó²ÅÕæÕýÍ£Ö¹±¾ servlet
+	 * ç¡®ä¿æ‰€æœ‰æ‰§è¡Œæœ¬ servlet.service() æ–¹æ³•çš„çº¿ç¨‹å…¨éƒ¨é€€å‡ºä¹‹åŽæ‰çœŸæ­£åœæ­¢æœ¬ servlet
 	 * 
 	 * @see javax.servlet.GenericServlet#destroy()
 	 */
 	@Override
 	public void destroy() {
-		// ¼ì²éÊÇ·ñ»¹ÓÐÏß³ÌÖ´ÐÐ servlet.service() ·½·¨£¬ÓÐµÄ»°Ê¹ÓÃ isShuttingDown ±êÖ¾Í¨ÖªËüÃÇÍ£Ö¹
+		// æ£€æŸ¥æ˜¯å¦è¿˜æœ‰çº¿ç¨‹æ‰§è¡Œ servlet.service() æ–¹æ³•ï¼Œæœ‰çš„è¯ä½¿ç”¨ isShuttingDown æ ‡å¿—é€šçŸ¥å®ƒä»¬åœæ­¢
 		if(getCounter() > 0) {
 			setShuttingDown(true);
 		}

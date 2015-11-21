@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ²âÊÔAjaxÇëÇóµÄservlet
+ * æµ‹è¯•Ajaxè¯·æ±‚çš„servlet
  */
 public class AjaxServlet extends HttpServlet {
 

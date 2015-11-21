@@ -11,27 +11,27 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
- * 1£¬Ò»¸ö¼òµ¥µÄ×Ô¶¨Òå±êÇ©Àà
+ * 1ï¼Œä¸€ä¸ªç®€å•çš„è‡ªå®šä¹‰æ ‡ç­¾ç±»
  * <p>
- * ÔÚJSPÒ³ÃæÊ¹ÓÃÒ»¸ö¼òµ¥µÄ±êÇ©Ê±£¬µ×²ãÊµ¼ÊÉÏÓÉ±êÇ©´¦ÀíÀàÌá¹©Ö§³Ö£¬
- * ´Ó¶ø¿ÉÒÔÍ¨¹ı¼òµ¥µÄ±êÇ©À´·â×°¸´ÔÓµÄ¹¦ÄÜ£¬´Ó¶øÊ¹ÍÅ¶Ó¸üºÃµØĞ­×÷¿ª·¢£¨ÃÀ¹¤²ÎÓëJSPÒ³ÃæµÄ¿ª·¢£©¡£
+ * åœ¨JSPé¡µé¢ä½¿ç”¨ä¸€ä¸ªç®€å•çš„æ ‡ç­¾æ—¶ï¼Œåº•å±‚å®é™…ä¸Šç”±æ ‡ç­¾å¤„ç†ç±»æä¾›æ”¯æŒï¼Œ
+ * ä»è€Œå¯ä»¥é€šè¿‡ç®€å•çš„æ ‡ç­¾æ¥å°è£…å¤æ‚çš„åŠŸèƒ½ï¼Œä»è€Œä½¿å›¢é˜Ÿæ›´å¥½åœ°åä½œå¼€å‘ï¼ˆç¾å·¥å‚ä¸JSPé¡µé¢çš„å¼€å‘ï¼‰ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê10ÔÂ11ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´10æœˆ11æ—¥
  */
-public class HelloWorldTag extends SimpleTagSupport {// ±ØĞë¼Ì³Ğ×Ô SimpleTagSupport
+public class HelloWorldTag extends SimpleTagSupport {// å¿…é¡»ç»§æ‰¿è‡ª SimpleTagSupport
 
 	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 	
 	/**
-	 * ÖØĞ´doTag()·½·¨£¬Õâ¸ö·½·¨¸ºÔğÉú³ÉÒ³ÃæÄÚÈİ
+	 * é‡å†™doTag()æ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•è´Ÿè´£ç”Ÿæˆé¡µé¢å†…å®¹
 	 * 
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
-		// »ñÈ¡JSPÒ³ÃæÊä³öÁ÷²¢Êä³ö×Ö·û´®
+		// è·å–JSPé¡µé¢è¾“å‡ºæµå¹¶è¾“å‡ºå­—ç¬¦ä¸²
 		getJspContext().getOut().println("Hello world. Now is " + formatter.format(new Date()));
 	}
 }

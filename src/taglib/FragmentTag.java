@@ -11,33 +11,33 @@ import javax.servlet.jsp.tagext.JspFragment;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
- * 4£¬ÒÔÒ³ÃæÆ¬¶Î£¨fragment£©×÷ÎªÊôĞÔµÄ±êÇ©Àà
+ * 4ï¼Œä»¥é¡µé¢ç‰‡æ®µï¼ˆfragmentï¼‰ä½œä¸ºå±æ€§çš„æ ‡ç­¾ç±»
  * <p>
- * JSP2¹æ·¶»¹ÔÊĞíÖ±½Ó½«Ò»¶ÎÒ³ÃæÆ¬¶Î×÷ÎªÊôĞÔ£¬Ìá¹©ÁË¸ü´óµÄÁé»îĞÔ¡£
+ * JSP2è§„èŒƒè¿˜å…è®¸ç›´æ¥å°†ä¸€æ®µé¡µé¢ç‰‡æ®µä½œä¸ºå±æ€§ï¼Œæä¾›äº†æ›´å¤§çš„çµæ´»æ€§ã€‚
  * <p>
- * ÕâÖÖÀàĞÍµÄ±êÇ©ÓëÆÕÍ¨±êÇ©Çø±ğ²¢²»´ó£¬Ö»ÓĞÁ½¸ö¼òµ¥µÄ¸Ä±ä£º
- * 1£¬±êÇ©´¦ÀíÀàÖĞ¶¨ÒåÀàĞÍÎª JspFragment µÄÊôĞÔ£¬¸ÃÊôĞÔ´ú±í Ò³ÃæÆ¬¶Î¡£
- * 2£¬Ê¹ÓÃ±êÇ©¿âÊ±£¬Í¨¹ı<jsp:attribute ../>¶¯×÷Ö¸ÁîÎª±êÇ©µÄÊôĞÔÖ¸¶¨Öµ¡£
+ * è¿™ç§ç±»å‹çš„æ ‡ç­¾ä¸æ™®é€šæ ‡ç­¾åŒºåˆ«å¹¶ä¸å¤§ï¼Œåªæœ‰ä¸¤ä¸ªç®€å•çš„æ”¹å˜ï¼š
+ * 1ï¼Œæ ‡ç­¾å¤„ç†ç±»ä¸­å®šä¹‰ç±»å‹ä¸º JspFragment çš„å±æ€§ï¼Œè¯¥å±æ€§ä»£è¡¨ é¡µé¢ç‰‡æ®µã€‚
+ * 2ï¼Œä½¿ç”¨æ ‡ç­¾åº“æ—¶ï¼Œé€šè¿‡<jsp:attribute ../>åŠ¨ä½œæŒ‡ä»¤ä¸ºæ ‡ç­¾çš„å±æ€§æŒ‡å®šå€¼ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê10ÔÂ11ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´10æœˆ11æ—¥
  */
-public class FragmentTag extends SimpleTagSupport {// ±ØĞë¼Ì³Ğ×Ô SimpleTagSupport
+public class FragmentTag extends SimpleTagSupport {// å¿…é¡»ç»§æ‰¿è‡ª SimpleTagSupport
 
 	private JspFragment content;
 	
 	/**
-	 * ÖØĞ´doTag()·½·¨£¬Õâ¸ö·½·¨¸ºÔğÉú³ÉÒ³ÃæÄÚÈİ
+	 * é‡å†™doTag()æ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•è´Ÿè´£ç”Ÿæˆé¡µé¢å†…å®¹
 	 * 
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
 	@Override
 	public void doTag() throws JspException, IOException {
 		JspWriter out = getJspContext().getOut();
-		// Îª fragment Ìí¼ÓÒ»¸ö±ß¿ò
+		// ä¸º fragment æ·»åŠ ä¸€ä¸ªè¾¹æ¡†
 		out.println("<div style='border:solid black;border-radius:15px;'>");
-		// µ÷ÓÃÊä³ö fragment ×ÔÉí
+		// è°ƒç”¨è¾“å‡º fragment è‡ªèº«
 		getContent().invoke(null);
 		out.println("</div>");
 	}

@@ -7,32 +7,32 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
 /**
- * HttpSessionAttributeListenerÊ¾Àı
+ * HttpSessionAttributeListenerç¤ºä¾‹
  * <p>
- * HttpSessionAttributeListenerÓÃÓÚ¼àÌıHttpSession·¶Î§ÄÚÊôĞÔµÄ¸Ä±ä¡£
+ * HttpSessionAttributeListenerç”¨äºç›‘å¬HttpSessionèŒƒå›´å†…å±æ€§çš„æ”¹å˜ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class MyHttpSessionAttributeListener implements HttpSessionAttributeListener {
 
 	/**
-	 * µ±³ÌĞòÏò ServletContext Ìí¼ÓÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºå‘ ServletContext æ·»åŠ å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeAdded(HttpSessionBindingEvent arg0) {
 	}
 
 	/**
-	 * µ±³ÌĞò´Ó ServletContext É¾³ıÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºä» ServletContext åˆ é™¤å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeRemoved(HttpSessionBindingEvent arg0) {
 	}
 
 	/**
-	 * µ±³ÌĞòÌæ»» ServletContext ÖĞµÄÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºæ›¿æ¢ ServletContext ä¸­çš„å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeReplaced(HttpSessionBindingEvent arg0) {

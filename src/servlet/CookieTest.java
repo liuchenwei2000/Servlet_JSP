@@ -12,30 +12,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Cookie Ïê½â
+ * Cookie è¯¦è§£
  * <p>
- * ¿ÉÒÔÊ¹ÓÃ cookie ÔÚ·şÎñÆ÷ºÍ¿Í»§Ö®¼ä½»»»Ãû/Öµ¶Ô£¨string£©£¬cookie Êµ¼ÊÉÏ¾ÍÊÇÔÚ¿Í»§ºÍ·şÎñÆ÷Ö®¼ä½»»»µÄÒ»Ğ¡¶ÎÊı¾İ¡£
- * ·şÎñÆ÷ÏÈ°Ñ cookie ·¢ËÍ¸ø¿Í»§£¬¿Í»§×ö³öÏÂÒ»¸öÇëÇóÊ±ÔÙ°Ñ cookie ·µ»Ø¸ø·şÎñÆ÷¡£
- * cookie µÄÒ»´óÃî´¦ÊÇ£¬ÓÃ»§²»±Ø½éÈë£¬cookie½»»»ÊÇ×Ô¶¯Íê³ÉµÄ£¨Ç°ÌáÊÇ¿Í»§¶ËÖ§³Öcookie£©¡£
- * Ä¬ÈÏµØ£¬cookieÓë»á»°µÄÊÙÃüÒ»Ñù³¤£¬Ò»µ©¿Í»§Àë¿ªä¯ÀÀÆ÷£¬cookie¾Í»áÏûÊ§¡£
- * µ«ÊÇ¿ÉÒÔÈÃcookie»îµÄ¸ü³¤Ò»Ğ©£¬ÉõÖÁÔÚä¯ÀÀÆ÷ÒÑ¾­¹Ø±ÕºóÈÔ´æ»î¡£
+ * å¯ä»¥ä½¿ç”¨ cookie åœ¨æœåŠ¡å™¨å’Œå®¢æˆ·ä¹‹é—´äº¤æ¢å/å€¼å¯¹ï¼ˆstringï¼‰ï¼Œcookie å®é™…ä¸Šå°±æ˜¯åœ¨å®¢æˆ·å’ŒæœåŠ¡å™¨ä¹‹é—´äº¤æ¢çš„ä¸€å°æ®µæ•°æ®ã€‚
+ * æœåŠ¡å™¨å…ˆæŠŠ cookie å‘é€ç»™å®¢æˆ·ï¼Œå®¢æˆ·åšå‡ºä¸‹ä¸€ä¸ªè¯·æ±‚æ—¶å†æŠŠ cookie è¿”å›ç»™æœåŠ¡å™¨ã€‚
+ * cookie çš„ä¸€å¤§å¦™å¤„æ˜¯ï¼Œç”¨æˆ·ä¸å¿…ä»‹å…¥ï¼Œcookieäº¤æ¢æ˜¯è‡ªåŠ¨å®Œæˆçš„ï¼ˆå‰ææ˜¯å®¢æˆ·ç«¯æ”¯æŒcookieï¼‰ã€‚
+ * é»˜è®¤åœ°ï¼Œcookieä¸ä¼šè¯çš„å¯¿å‘½ä¸€æ ·é•¿ï¼Œä¸€æ—¦å®¢æˆ·ç¦»å¼€æµè§ˆå™¨ï¼Œcookieå°±ä¼šæ¶ˆå¤±ã€‚
+ * ä½†æ˜¯å¯ä»¥è®©cookieæ´»çš„æ›´é•¿ä¸€äº›ï¼Œç”šè‡³åœ¨æµè§ˆå™¨å·²ç»å…³é—­åä»å­˜æ´»ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class CookieTest extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * ÏìÓ¦GETÇëÇó
+	 * å“åº”GETè¯·æ±‚
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// ´Ó¿Í»§ÇëÇóµÃµ½ cookie£¨»ò¶à¸ö cookie£©
+		// ä»å®¢æˆ·è¯·æ±‚å¾—åˆ° cookieï¼ˆæˆ–å¤šä¸ª cookieï¼‰
 		Cookie[] cookies = req.getCookies();
-		for (Cookie cookie : cookies) {// Ö»ÄÜÍ¨¹ı±éÀúµÄ·½Ê½²éÕÒÏëÒªµÄÄÇ¸ö cookie
+		for (Cookie cookie : cookies) {// åªèƒ½é€šè¿‡éå†çš„æ–¹å¼æŸ¥æ‰¾æƒ³è¦çš„é‚£ä¸ª cookie
 			if ("username".equalsIgnoreCase(cookie.getName())) {
 				String userName = cookie.getValue();
 				System.out.println("Hello " + userName);
@@ -43,11 +43,11 @@ public class CookieTest extends HttpServlet {
 			}
 		}
 
-		// ´´½¨Ò»¸öĞÂ Cookie£¬ÃûÖµ¶Ô
+		// åˆ›å»ºä¸€ä¸ªæ–° Cookieï¼Œåå€¼å¯¹
 		Cookie cookie = new Cookie("email", "aaa@gmail.com");
-		// ÉèÖÃ cookie ÔÚ¿Í»§¶ËÉÏµÄ´æ»îÊ±¼ä£¬µ¥Î»ÊÇÃë
+		// è®¾ç½® cookie åœ¨å®¢æˆ·ç«¯ä¸Šçš„å­˜æ´»æ—¶é—´ï¼Œå•ä½æ˜¯ç§’
 		cookie.setMaxAge(30 * 60);
-		// °Ñ cookie ·¢ËÍ¸ø¿Í»§£¬¿ÉÒÔ·¢ËÍ¶à¸ö cookie
+		// æŠŠ cookie å‘é€ç»™å®¢æˆ·ï¼Œå¯ä»¥å‘é€å¤šä¸ª cookie
 		resp.addCookie(cookie);
 	}
 }

@@ -1,43 +1,43 @@
 
 
-ServletÓÅÊÆ
+Servletä¼˜åŠ¿
 
-ÔÚ·þÎñÆ÷ÉÏ½öÓÐÒ»¸öJavaÐéÄâ»úÔÚÔËÐÐ£¬ÆäÓÅÊÆÔÚÓÚµ±¶à¸öÀ´×Ô¿Í»§¶ËµÄÇëÇó·ÃÎÊÊ±£¬ServletÎªÃ¿¸öÇëÇó·ÖÅäÒ»¸öÏß³Ì£¬¶ø²»ÊÇ½ø³Ì¡£
-
-
-²¿Êð²½Öè
-
-1£¬½«servletÔ´ÎÄ¼þ±àÒë³ÉclassÎÄ¼þ»òµ¼³ö³É*.warÎÄ¼þ¡£
-2£¬½«classÎÄ¼þ»òwar°ü·ÅÔÚWEB-INF/classesÂ·¾¶ÏÂ£¬Èç¹ûservletÓÐ°üÃû£¬»¹Ó¦¸Ã½«classÎÄ¼þ·ÅÔÚ¶ÔÓ¦µÄ°üÂ·¾¶ÏÂ¡£
-3£¬ÔÚweb.xmlÖÐÅäÖÃservlet¡£
+åœ¨æœåŠ¡å™¨ä¸Šä»…æœ‰ä¸€ä¸ªJavaè™šæ‹Ÿæœºåœ¨è¿è¡Œï¼Œå…¶ä¼˜åŠ¿åœ¨äºŽå½“å¤šä¸ªæ¥è‡ªå®¢æˆ·ç«¯çš„è¯·æ±‚è®¿é—®æ—¶ï¼ŒServletä¸ºæ¯ä¸ªè¯·æ±‚åˆ†é…ä¸€ä¸ªçº¿ç¨‹ï¼Œè€Œä¸æ˜¯è¿›ç¨‹ã€‚
 
 
-ÉúÃüÖÜÆÚ
+éƒ¨ç½²æ­¥éª¤
 
-servletÔÚÈÝÆ÷ÖÐÔËÐÐÊ±£¬ÆäÊµÀýµÄ´´½¨¼°Ïú»Ù¶¼²»ÊÇÓÉ³ÌÐòÔ±¾ö¶¨µÄ£¬¶øÊÇÓÉWebÈÝÆ÷½øÐÐ¿ØÖÆµÄ¡£
-servlet´Ó¡°²»´æÔÚ¡±×´Ì¬Ç¨ÒÆµ½¡°³õÊ¼»¯¡±×´Ì¬£¨ÕâÒâÎ¶×ÅÒÑ¾­×¼±¸ºÃÎª¿Í»§ÇëÇóÌá¹©·þÎñ£©£¬Ê×ÏÈÊÇ´Ó¹¹Ôìº¯Êý¿ªÊ¼£¬
-µ«ÊÇ¹¹Ôìº¯ÊýÖ»ÊÇÊ¹Ö®³ÉÎªÒ»¸ö¶ÔÏó£¬¶ø²»ÊÇÒ»¸ö servlet¡£ÒªÏë³ÉÎªÒ»¸ö servlet£¬¶ÔÏó±ØÐë¾ß±¸Ò»Ð© servlet ÌØÐÔ¡£
-µ±ÈÝÆ÷Îªservlet½¨Á¢Ò»¸ö ServletConfig ²¢µ÷ÓÃÆäinit()·½·¨ºó£¬¶ÔÏó½«³ÉÎªÒ»¸öservlet£¬Ëü»áµÃµ½ servlet ¸ÃÓÐµÄËùÓÐÌØÈ¨£¬±ÈÈçÄÜ¹»Ê¹ÓÃ ServletContext ÒýÓÃ´ÓÈÝÆ÷µÃµ½ÐÅÏ¢¡£
-
-Ã¿¸öservletµÄÔËÐÐ¶¼×ñÑ­ÈçÏÂÉúÃüÖÜÆÚ£º
-1£¬´´½¨servletÊµÀý¡£
-ÓÐÁ½¸öÊ±»ú£º
-µ±¿Í»§¶ËµÚÒ»´ÎÇëÇóÄ³¸öservletÊ±£¬ÏµÍ³´´½¨ÆäÊµÀý£¬´ó²¿·ÖµÄservlet¶¼ÊÇÕâÑù¡£
-WebÓ¦ÓÃÆô¶¯Ê±Á¢¼´´´½¨servletÊµÀý£¬¼´ load-on-startup servlet¡£
-2£¬WebÈÝÆ÷µ÷ÓÃservletµÄinit·½·¨£¬¶Ôservlet½øÐÐ³õÊ¼»¯¡£
-3£¬servlet³õÊ¼»¯ºó£¬½«Ò»Ö±´æÔÚÓÚÈÝÆ÷ÖÐ£¬ÓÃÓÚÏìÓ¦¿Í»§¶ËÇëÇó¡£
-4£¬WebÈÝÆ÷¾ö¶¨Ïú»ÙservletÊ±£¬ÏÈµ÷ÓÃÆädestroy·½·¨£¬Í¨³£ÔÚ¹Ø±ÕWebÓ¦ÓÃÖ®Ê±Ïú»Ùservlet¡£
+1ï¼Œå°†servletæºæ–‡ä»¶ç¼–è¯‘æˆclassæ–‡ä»¶æˆ–å¯¼å‡ºæˆ*.waræ–‡ä»¶ã€‚
+2ï¼Œå°†classæ–‡ä»¶æˆ–waråŒ…æ”¾åœ¨WEB-INF/classesè·¯å¾„ä¸‹ï¼Œå¦‚æžœservletæœ‰åŒ…åï¼Œè¿˜åº”è¯¥å°†classæ–‡ä»¶æ”¾åœ¨å¯¹åº”çš„åŒ…è·¯å¾„ä¸‹ã€‚
+3ï¼Œåœ¨web.xmlä¸­é…ç½®servletã€‚
 
 
-ServletConfig ¶ÔÏó
+ç”Ÿå‘½å‘¨æœŸ
 
-Ã¿¸ö Servlet ¶¼ÓÐÒ»¸ö ServletConfig ¶ÔÏó¡£
-ÓÃÓÚÏò servlet ´«µÝ²¿ÊðÊ±ÐÅÏ¢£¨ÀýÈçÊý¾Ý¿âÐÅÏ¢£©£¬¶øÄã²»Ïë°ÑÕâ¸öÐÅÏ¢Ó²±àÂëÐ´µ½ servlet ÖÐ£¨servlet³õÊ¼»¯²ÎÊý£©¡£
-ÓÃÓÚ·ÃÎÊ ServletContext¡£
+servletåœ¨å®¹å™¨ä¸­è¿è¡Œæ—¶ï¼Œå…¶å®žä¾‹çš„åˆ›å»ºåŠé”€æ¯éƒ½ä¸æ˜¯ç”±ç¨‹åºå‘˜å†³å®šçš„ï¼Œè€Œæ˜¯ç”±Webå®¹å™¨è¿›è¡ŒæŽ§åˆ¶çš„ã€‚
+servletä»Žâ€œä¸å­˜åœ¨â€çŠ¶æ€è¿ç§»åˆ°â€œåˆå§‹åŒ–â€çŠ¶æ€ï¼ˆè¿™æ„å‘³ç€å·²ç»å‡†å¤‡å¥½ä¸ºå®¢æˆ·è¯·æ±‚æä¾›æœåŠ¡ï¼‰ï¼Œé¦–å…ˆæ˜¯ä»Žæž„é€ å‡½æ•°å¼€å§‹ï¼Œ
+ä½†æ˜¯æž„é€ å‡½æ•°åªæ˜¯ä½¿ä¹‹æˆä¸ºä¸€ä¸ªå¯¹è±¡ï¼Œè€Œä¸æ˜¯ä¸€ä¸ª servletã€‚è¦æƒ³æˆä¸ºä¸€ä¸ª servletï¼Œå¯¹è±¡å¿…é¡»å…·å¤‡ä¸€äº› servlet ç‰¹æ€§ã€‚
+å½“å®¹å™¨ä¸ºservletå»ºç«‹ä¸€ä¸ª ServletConfig å¹¶è°ƒç”¨å…¶init()æ–¹æ³•åŽï¼Œå¯¹è±¡å°†æˆä¸ºä¸€ä¸ªservletï¼Œå®ƒä¼šå¾—åˆ° servlet è¯¥æœ‰çš„æ‰€æœ‰ç‰¹æƒï¼Œæ¯”å¦‚èƒ½å¤Ÿä½¿ç”¨ ServletContext å¼•ç”¨ä»Žå®¹å™¨å¾—åˆ°ä¿¡æ¯ã€‚
+
+æ¯ä¸ªservletçš„è¿è¡Œéƒ½éµå¾ªå¦‚ä¸‹ç”Ÿå‘½å‘¨æœŸï¼š
+1ï¼Œåˆ›å»ºservletå®žä¾‹ã€‚
+æœ‰ä¸¤ä¸ªæ—¶æœºï¼š
+å½“å®¢æˆ·ç«¯ç¬¬ä¸€æ¬¡è¯·æ±‚æŸä¸ªservletæ—¶ï¼Œç³»ç»Ÿåˆ›å»ºå…¶å®žä¾‹ï¼Œå¤§éƒ¨åˆ†çš„servletéƒ½æ˜¯è¿™æ ·ã€‚
+Webåº”ç”¨å¯åŠ¨æ—¶ç«‹å³åˆ›å»ºservletå®žä¾‹ï¼Œå³ load-on-startup servletã€‚
+2ï¼ŒWebå®¹å™¨è°ƒç”¨servletçš„initæ–¹æ³•ï¼Œå¯¹servletè¿›è¡Œåˆå§‹åŒ–ã€‚
+3ï¼Œservletåˆå§‹åŒ–åŽï¼Œå°†ä¸€ç›´å­˜åœ¨äºŽå®¹å™¨ä¸­ï¼Œç”¨äºŽå“åº”å®¢æˆ·ç«¯è¯·æ±‚ã€‚
+4ï¼ŒWebå®¹å™¨å†³å®šé”€æ¯servletæ—¶ï¼Œå…ˆè°ƒç”¨å…¶destroyæ–¹æ³•ï¼Œé€šå¸¸åœ¨å…³é—­Webåº”ç”¨ä¹‹æ—¶é”€æ¯servletã€‚
 
 
-ServletContext ¶ÔÏó
+ServletConfig å¯¹è±¡
 
-Ã¿¸öWebÓ¦ÓÃÓÐÒ»¸ö ServletContext¡£
-ÓÃÓÚ·ÃÎÊ Web Ó¦ÓÃ²ÎÊý£¨ÔÚ²¿ÊðÃèÊöÎÄ¼þÖÐÅäÖÃ£©¡£
-ÓÃÓÚµÃµ½·þÎñÆ÷ÐÅÏ¢£¬°üÀ¨ÈÝÆ÷ÃûºÍÈÝÆ÷°æ±¾£¬ÒÔ¼°ËùÖ§³ÖAPIµÄ°æ±¾µÈ¡£
+æ¯ä¸ª Servlet éƒ½æœ‰ä¸€ä¸ª ServletConfig å¯¹è±¡ã€‚
+ç”¨äºŽå‘ servlet ä¼ é€’éƒ¨ç½²æ—¶ä¿¡æ¯ï¼ˆä¾‹å¦‚æ•°æ®åº“ä¿¡æ¯ï¼‰ï¼Œè€Œä½ ä¸æƒ³æŠŠè¿™ä¸ªä¿¡æ¯ç¡¬ç¼–ç å†™åˆ° servlet ä¸­ï¼ˆservletåˆå§‹åŒ–å‚æ•°ï¼‰ã€‚
+ç”¨äºŽè®¿é—® ServletContextã€‚
+
+
+ServletContext å¯¹è±¡
+
+æ¯ä¸ªWebåº”ç”¨æœ‰ä¸€ä¸ª ServletContextã€‚
+ç”¨äºŽè®¿é—® Web åº”ç”¨å‚æ•°ï¼ˆåœ¨éƒ¨ç½²æè¿°æ–‡ä»¶ä¸­é…ç½®ï¼‰ã€‚
+ç”¨äºŽå¾—åˆ°æœåŠ¡å™¨ä¿¡æ¯ï¼ŒåŒ…æ‹¬å®¹å™¨åå’Œå®¹å™¨ç‰ˆæœ¬ï¼Œä»¥åŠæ‰€æ”¯æŒAPIçš„ç‰ˆæœ¬ç­‰ã€‚

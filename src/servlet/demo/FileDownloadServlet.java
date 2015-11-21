@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ÎÄ¼şÏÂÔØServlet
+ * æ–‡ä»¶ä¸‹è½½Servlet
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ18æ—¥
  */
 public class FileDownloadServlet extends HttpServlet {
 
@@ -39,16 +39,16 @@ public class FileDownloadServlet extends HttpServlet {
 		File file = new File(getRealFilePath(filename));
 		if (file.exists()) {
 
-			// ÎÄ¼şÍ·µÄÉèÖÃ
+			// æ–‡ä»¶å¤´çš„è®¾ç½®
 			resp.setHeader("Content-Disposition", "attachment;filename="
 					+ encodeFileName(filename));
-			// ÉèÖÃÎÄ¼şÄÚÈİµÄÀàĞÍ
+			// è®¾ç½®æ–‡ä»¶å†…å®¹çš„ç±»å‹
 			resp.setContentType("application/octet-stream");
 
 			BufferedInputStream bis = null;
 			BufferedOutputStream bos = null;
 			try {
-				// Ê¹ÓÃIOÁ÷½øĞĞÏÂÔØ²Ù×÷
+				// ä½¿ç”¨IOæµè¿›è¡Œä¸‹è½½æ“ä½œ
 				bis = new BufferedInputStream(new FileInputStream(file));
 				bos = new BufferedOutputStream(resp.getOutputStream());
 
@@ -76,10 +76,10 @@ public class FileDownloadServlet extends HttpServlet {
 	}
 	
 	/**
-	 * ·µ»ØÎÄ¼şÔÚ·şÎñÆ÷ÉÏµÄÕæÊµÂ·¾¶
+	 * è¿”å›æ–‡ä»¶åœ¨æœåŠ¡å™¨ä¸Šçš„çœŸå®è·¯å¾„
 	 */
 	private String getRealFilePath(String filename) {
-		// µÃµ½WebÄ£¿éÔÚ·şÎñÆ÷ÉÏµÄÂ·¾¶£¬´Ó¶øµÃµ½ÎÄ¼şµÄÕæÊµÂ·¾¶
+		// å¾—åˆ°Webæ¨¡å—åœ¨æœåŠ¡å™¨ä¸Šçš„è·¯å¾„ï¼Œä»è€Œå¾—åˆ°æ–‡ä»¶çš„çœŸå®è·¯å¾„
 		StringBuffer s = new StringBuffer(getServletContext().getRealPath("/"));
 		s.append("WEB-INF/files/");
 		s.append(filename);
@@ -87,16 +87,16 @@ public class FileDownloadServlet extends HttpServlet {
 	}
 	
 	/**
-	 * ½«ÎÄ¼şÃû½øĞĞÖØ±àÂëÒÔÖ§³Ö¼òÌåÖĞÎÄ
+	 * å°†æ–‡ä»¶åè¿›è¡Œé‡ç¼–ç ä»¥æ”¯æŒç®€ä½“ä¸­æ–‡
 	 */
 	private String encodeFileName(String filename){
-		// ¶ÔÓÚ´¿¼òÌåÖĞÎÄµÄÎÄ¼şÃû¿ÉÒÔÊ¹ÓÃÏÂÃæµÄ·½Ê½½« filename ×Ö·û´®×ª»¯³É ISO8859-1
-		// Èç¹ûÖĞ¼ä»¹ÓĞ·±Ìå×ÖµÄ»°£¬¾ÍĞèÒªÊ¹ÓÃÆäËûµÄ·½·¨À´½â¾öÖĞÎÄÏÔÊ¾µÄÎÊÌâ
+		// å¯¹äºçº¯ç®€ä½“ä¸­æ–‡çš„æ–‡ä»¶åå¯ä»¥ä½¿ç”¨ä¸‹é¢çš„æ–¹å¼å°† filename å­—ç¬¦ä¸²è½¬åŒ–æˆ ISO8859-1
+		// å¦‚æœä¸­é—´è¿˜æœ‰ç¹ä½“å­—çš„è¯ï¼Œå°±éœ€è¦ä½¿ç”¨å…¶ä»–çš„æ–¹æ³•æ¥è§£å†³ä¸­æ–‡æ˜¾ç¤ºçš„é—®é¢˜
 		try {
 			return new String(filename.getBytes("gb2312"), "ISO8859-1");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-			throw new RuntimeException("±àÂëÊ§°Ü£º" + e.getMessage());
+			throw new RuntimeException("ç¼–ç å¤±è´¥ï¼š" + e.getMessage());
 		}
 	}
 }

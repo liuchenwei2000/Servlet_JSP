@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * MVCÖ®Controller
+ * MVCä¹‹Controller
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class CountryServlet extends HttpServlet {
 
@@ -31,17 +31,17 @@ public class CountryServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// »ñÈ¡¿Í»§¶ËÌá½»µÄ²ÎÊı
+		// è·å–å®¢æˆ·ç«¯æäº¤çš„å‚æ•°
 		String country = req.getParameter("country");
-		// µ÷ÓÃ Model£¬Ö´ĞĞÒµÎñÂß¼­²Ù×÷
+		// è°ƒç”¨ Modelï¼Œæ‰§è¡Œä¸šåŠ¡é€»è¾‘æ“ä½œ
 		CountryHelper helper = new CountryHelper();
 		String area = helper.getArea(country);
 
-		// Ê¹ÓÃrequest¶ÔÏó±£´æÊôĞÔ/Öµ£¬ÓÃÓÚÏòView´«µİĞÅÏ¢
+		// ä½¿ç”¨requestå¯¹è±¡ä¿å­˜å±æ€§/å€¼ï¼Œç”¨äºå‘Viewä¼ é€’ä¿¡æ¯
 		req.setAttribute("area", area);
 		req.setAttribute("country", country);
 		
-		// ·şÎñÆ÷¶ËÇëÇó×ª·¢£¬×ª·¢¸øView£¨¾ßÌå¿ÉÒÔÊÇJSP¡¢Servlet»òHTML£©
+		// æœåŠ¡å™¨ç«¯è¯·æ±‚è½¬å‘ï¼Œè½¬å‘ç»™Viewï¼ˆå…·ä½“å¯ä»¥æ˜¯JSPã€Servletæˆ–HTMLï¼‰
 		RequestDispatcher dispatcher = req.getRequestDispatcher("country.jsp");
 		dispatcher.forward(req, resp);
 	}

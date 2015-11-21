@@ -15,25 +15,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * FilterÊ¾Àı
+ * Filterç¤ºä¾‹
  * <p>
- * ´´½¨Ò»¸öFilterÖ»ĞèÁ½¸ö²½Öè£º
- * 1£¬´´½¨FilterÊµÏÖÀà¡£
- * 2£¬²¿ÊğFilter£¨ÔÚweb.xmlÖĞÅäÖÃ£©¡£
+ * åˆ›å»ºä¸€ä¸ªFilteråªéœ€ä¸¤ä¸ªæ­¥éª¤ï¼š
+ * 1ï¼Œåˆ›å»ºFilterå®ç°ç±»ã€‚
+ * 2ï¼Œéƒ¨ç½²Filterï¼ˆåœ¨web.xmlä¸­é…ç½®ï¼‰ã€‚
  * <p>
- * Filter½«»áÑéÖ¤ÓÃ»§ÊÇ·ñÒÑµÇÂ¼£¬Èç¹ûÃ»ÓĞµÇÂ¼ÔòÖ±½ÓÌø×ªµ½µÇÂ¼Ò³Ãæ¡£
+ * Filterå°†ä¼šéªŒè¯ç”¨æˆ·æ˜¯å¦å·²ç™»å½•ï¼Œå¦‚æœæ²¡æœ‰ç™»å½•åˆ™ç›´æ¥è·³è½¬åˆ°ç™»å½•é¡µé¢ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
-public class FilterTest implements Filter {// ±ØĞëÊµÏÖFilter
+public class FilterTest implements Filter {// å¿…é¡»å®ç°Filter
 	
-	// Í¨³£ĞèÒª±£´æÅäÖÃ¶ÔÏó
+	// é€šå¸¸éœ€è¦ä¿å­˜é…ç½®å¯¹è±¡
 	private FilterConfig config;
 
 	/**
-	 * ÓÃÓÚÍê³ÉFilterµÄ³õÊ¼»¯
+	 * ç”¨äºå®ŒæˆFilterçš„åˆå§‹åŒ–
 	 */
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
@@ -41,7 +41,7 @@ public class FilterTest implements Filter {// ±ØĞëÊµÏÖFilter
 	}
 	
 	/**
-	 * ÓÃÓÚFilterÏú»ÙÇ°£¬Íê³ÉÄ³Ğ©×ÊÔ´µÄ»ØÊÕ¡£
+	 * ç”¨äºFilteré”€æ¯å‰ï¼Œå®ŒæˆæŸäº›èµ„æºçš„å›æ”¶ã€‚
 	 */
 	@Override
 	public void destroy() {
@@ -49,7 +49,7 @@ public class FilterTest implements Filter {// ±ØĞëÊµÏÖFilter
 	}
 
 	/**
-	 * ºËĞÄ·½·¨£ºÊµÏÖÀ¹½Ø¹ıÂË¹¦ÄÜ£¬¸Ã·½·¨¾ÍÊÇ¶ÔÃ¿¸öÇëÇó¼°ÏìÓ¦Ôö¼ÓµÄ¶îÍâ´¦Àí¡£
+	 * æ ¸å¿ƒæ–¹æ³•ï¼šå®ç°æ‹¦æˆªè¿‡æ»¤åŠŸèƒ½ï¼Œè¯¥æ–¹æ³•å°±æ˜¯å¯¹æ¯ä¸ªè¯·æ±‚åŠå“åº”å¢åŠ çš„é¢å¤–å¤„ç†ã€‚
 	 */
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
@@ -58,17 +58,17 @@ public class FilterTest implements Filter {// ±ØĞëÊµÏÖFilter
 		HttpSession session = ((HttpServletRequest)request).getSession(true);
 		String servletPath = ((HttpServletRequest)request).getServletPath();
 		
-		// ÕâÀï·ÅÈëÒ»¸öuserĞÅÏ¢£¬¼Ù×°ÒÑ¾­µÇÂ¼
+		// è¿™é‡Œæ”¾å…¥ä¸€ä¸ªuserä¿¡æ¯ï¼Œå‡è£…å·²ç»ç™»å½•
 		session.setAttribute("user", "admin");
-		// session ÖĞÃ»ÓĞuserĞÅÏ¢ÔòÈÏÎªÉĞÎ´µÇÂ¼
+		// session ä¸­æ²¡æœ‰userä¿¡æ¯åˆ™è®¤ä¸ºå°šæœªç™»å½•
 		if (session.getAttribute("user") == null && !servletPath.endsWith(loginPage)) {
-			request.setAttribute("ÌáÊ¾", "Äú»¹Ã»ÓĞµÇÂ¼¡£");
-			// Ö±½ÓÌø×ªµ½µÇÂ¼½çÃæ£¬²»ÔÙ½«ÇëÇóÏòºó´«µİ
+			request.setAttribute("æç¤º", "æ‚¨è¿˜æ²¡æœ‰ç™»å½•ã€‚");
+			// ç›´æ¥è·³è½¬åˆ°ç™»å½•ç•Œé¢ï¼Œä¸å†å°†è¯·æ±‚å‘åä¼ é€’
 			request.getRequestDispatcher(loginPage).forward(request, response);
 		} else {
 			/* 
-			 * FilterÖ»ÊÇÁ´Ê½´¦Àí£¬ÇëÇóÒÀÈ»±»·ÅĞĞµ½Ä¿µÄµØÖ·¡£
-			 * ¼ÙÉèÈİÆ÷ÄÜ°ÑÇëÇó URL Ó³Éäµ½Ò»¸ö servlet »ò JSP£¬ÄÇÃ´ FilterChain Î²²¿×ÜÊÇÒ»¸ö servlet »ò JSP¡£
+			 * Filteråªæ˜¯é“¾å¼å¤„ç†ï¼Œè¯·æ±‚ä¾ç„¶è¢«æ”¾è¡Œåˆ°ç›®çš„åœ°å€ã€‚
+			 * å‡è®¾å®¹å™¨èƒ½æŠŠè¯·æ±‚ URL æ˜ å°„åˆ°ä¸€ä¸ª servlet æˆ– JSPï¼Œé‚£ä¹ˆ FilterChain å°¾éƒ¨æ€»æ˜¯ä¸€ä¸ª servlet æˆ– JSPã€‚
 			 */
 			chain.doFilter(request, response);
 		}

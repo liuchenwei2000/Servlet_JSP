@@ -13,27 +13,27 @@ import javax.servlet.jsp.tagext.DynamicAttributes;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
- * ¶¯Ì¬ÊôĞÔ±êÇ©Àà
+ * åŠ¨æ€å±æ€§æ ‡ç­¾ç±»
  * <p>
- * Ç°Ãæ¼¸ÖÖ±êÇ©µÄÊôĞÔ¸öÊıÊÇ¹Ì¶¨µÄ£¬Èç¹û´«ÈëÊôĞÔµÄ¸öÊı²»¹Ì¶¨£¬ÔòĞèÒª½èÖú¶¯Ì¬ÊôĞÔ±êÇ©¡£
+ * å‰é¢å‡ ç§æ ‡ç­¾çš„å±æ€§ä¸ªæ•°æ˜¯å›ºå®šçš„ï¼Œå¦‚æœä¼ å…¥å±æ€§çš„ä¸ªæ•°ä¸å›ºå®šï¼Œåˆ™éœ€è¦å€ŸåŠ©åŠ¨æ€å±æ€§æ ‡ç­¾ã€‚
  * <p>
- * ÕâÖÖÀàĞÍµÄ±êÇ©±ÈÆÕÍ¨±êÇ©¶àÁËÁ½¸ö¶îÍâÒªÇó£º
- * 1£¬±êÇ©´¦ÀíÀàĞèÒªÊµÏÖ DynamicAttributes ½Ó¿Ú¡£
- * 2£¬ÅäÖÃ±êÇ©Ê±Í¨¹ı dynamic-attributes ÔªËØÖ¸¶¨ÆäÖ§³Ö¶¯Ì¬ÊôĞÔ¡£
+ * è¿™ç§ç±»å‹çš„æ ‡ç­¾æ¯”æ™®é€šæ ‡ç­¾å¤šäº†ä¸¤ä¸ªé¢å¤–è¦æ±‚ï¼š
+ * 1ï¼Œæ ‡ç­¾å¤„ç†ç±»éœ€è¦å®ç° DynamicAttributes æ¥å£ã€‚
+ * 2ï¼Œé…ç½®æ ‡ç­¾æ—¶é€šè¿‡ dynamic-attributes å…ƒç´ æŒ‡å®šå…¶æ”¯æŒåŠ¨æ€å±æ€§ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê10ÔÂ11ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´10æœˆ11æ—¥
  */
-public class DynamicAttributesTag extends SimpleTagSupport implements DynamicAttributes {// ±ØĞëÊµÏÖ DynamicAttributes ½Ó¿Ú
+public class DynamicAttributesTag extends SimpleTagSupport implements DynamicAttributes {// å¿…é¡»å®ç° DynamicAttributes æ¥å£
 	
-	// ¶¯Ì¬ÊôĞÔÃû
+	// åŠ¨æ€å±æ€§å
 	private List<String> names = new ArrayList<String>();
-	// ¶¯Ì¬ÊôĞÔÖµ
+	// åŠ¨æ€å±æ€§å€¼
 	private List<String> values = new ArrayList<String>();
 
 	/**
-	 * ÖØĞ´doTag()·½·¨£¬Õâ¸ö·½·¨¸ºÔğÉú³ÉÒ³ÃæÄÚÈİ
+	 * é‡å†™doTag()æ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•è´Ÿè´£ç”Ÿæˆé¡µé¢å†…å®¹
 	 * 
 	 * @see javax.servlet.jsp.tagext.SimpleTagSupport#doTag()
 	 */
@@ -48,7 +48,7 @@ public class DynamicAttributesTag extends SimpleTagSupport implements DynamicAtt
 	}
 
 	/** 
-	 * ÊµÏÖ DynamicAttributes ÖĞµÄ¸Ã·½·¨£¬¶¯Ì¬Ìí¼ÓÊôĞÔÃûºÍÊôĞÔÖµ
+	 * å®ç° DynamicAttributes ä¸­çš„è¯¥æ–¹æ³•ï¼ŒåŠ¨æ€æ·»åŠ å±æ€§åå’Œå±æ€§å€¼
 	 * 
 	 * @see javax.servlet.jsp.tagext.DynamicAttributes#setDynamicAttribute(java.lang.String, java.lang.String, java.lang.Object)
 	 */

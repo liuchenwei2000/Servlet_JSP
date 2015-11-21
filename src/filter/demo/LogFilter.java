@@ -13,48 +13,48 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * ÈÕÖ¾¹ıÂËÆ÷FilterÊ¾Àı
+ * æ—¥å¿—è¿‡æ»¤å™¨Filterç¤ºä¾‹
  * <p>
- * Filter ¿ÉÒÔĞŞ¸ÄÒ»¸ö request/response¡£Ëü²»ÊÇservlet£¬²»ÄÜ²úÉúÒ»¸ö response£¬
- * ËüÄÜ¹»ÔÚÒ»¸ö request µ½´ï servlet Ö®Ç°¶ÔÆä½øĞĞÔ¤´¦Àí£¬Ò²¿ÉÒÔÔÚÀë¿ª servlet ºó¶Ô response ½øĞĞºó´¦Àí¡£
+ * Filter å¯ä»¥ä¿®æ”¹ä¸€ä¸ª request/responseã€‚å®ƒä¸æ˜¯servletï¼Œä¸èƒ½äº§ç”Ÿä¸€ä¸ª responseï¼Œ
+ * å®ƒèƒ½å¤Ÿåœ¨ä¸€ä¸ª request åˆ°è¾¾ servlet ä¹‹å‰å¯¹å…¶è¿›è¡Œé¢„å¤„ç†ï¼Œä¹Ÿå¯ä»¥åœ¨ç¦»å¼€ servlet åå¯¹ response è¿›è¡Œåå¤„ç†ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ1ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ1æ—¥
  */
 public class LogFilter implements Filter {
 
 	/** 
-	 * Filter³õÊ¼»¯Ê±
+	 * Filteråˆå§‹åŒ–æ—¶
 	 * 
 	 * @see javax.servlet.Filter#init(javax.servlet.FilterConfig)
 	 */
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		System.out.println("¡¾LogFilter init¡¿");
+		System.out.println("ã€LogFilter initã€‘");
 	}
 	
 	/** 
-	 * Filter±»Ïú»ÙÊ±£¨Ò»°ãÊÇWebÈİÆ÷ shutdownµÄÊ±ºò£©
+	 * Filterè¢«é”€æ¯æ—¶ï¼ˆä¸€èˆ¬æ˜¯Webå®¹å™¨ shutdownçš„æ—¶å€™ï¼‰
 	 * 
 	 * @see javax.servlet.Filter#destroy()
 	 */
 	@Override
 	public void destroy() {
-		System.out.println("¡¾LogFilter destroy¡¿");
+		System.out.println("ã€LogFilter destroyã€‘");
 	}
 
 	/** 
-	 * ½øĞĞ¹ıÂË²Ù×÷
+	 * è¿›è¡Œè¿‡æ»¤æ“ä½œ
 	 * 
 	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("ÇëÇóÀ´Ô´IP£º " + req.getRemoteAddr());
-		// ¼ÌĞøÏòºó´«µİÇëÇó£¬Ö±µ½Ä¿±êServlet´¦ÀíÍê±Ï²Å·µ»Ø
+		System.out.println("è¯·æ±‚æ¥æºIPï¼š " + req.getRemoteAddr());
+		// ç»§ç»­å‘åä¼ é€’è¯·æ±‚ï¼Œç›´åˆ°ç›®æ ‡Servletå¤„ç†å®Œæ¯•æ‰è¿”å›
 		chain.doFilter(req, resp);
-		System.out.println("ÇëÇó´¦ÀíÍê±Ï£¡ ");
+		System.out.println("è¯·æ±‚å¤„ç†å®Œæ¯•ï¼ ");
 	}
 }

@@ -7,29 +7,29 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /**
- * ServletContextListenerÊ¾Àı
+ * ServletContextListenerç¤ºä¾‹
  * <p>
- * ServletContextListenerÓÃÓÚ¼àÌıWebÓ¦ÓÃµÄÆô¶¯ºÍ¹Ø±Õ¡£
+ * ServletContextListenerç”¨äºç›‘å¬Webåº”ç”¨çš„å¯åŠ¨å’Œå…³é—­ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class MyServletContextListener implements ServletContextListener {
 	
 	/**
-	 * »Øµ÷·½·¨À´Æô¶¯Ä³Ğ©ºóÌ¨³ÌĞò£¬ÕâĞ©ºóÌ¨³ÌĞò¸ºÔğÎªÏµÍ³ÔËĞĞÌá¹©Ö§³Ö¡£
+	 * å›è°ƒæ–¹æ³•æ¥å¯åŠ¨æŸäº›åå°ç¨‹åºï¼Œè¿™äº›åå°ç¨‹åºè´Ÿè´£ä¸ºç³»ç»Ÿè¿è¡Œæä¾›æ”¯æŒã€‚
 	 */
 	
 	/**
-	 * Æô¶¯WebÓ¦ÓÃÊ±±»µ÷ÓÃ
+	 * å¯åŠ¨Webåº”ç”¨æ—¶è¢«è°ƒç”¨
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
 	}
 
 	/**
-	 * ¹Ø±ÕWebÓ¦ÓÃÊ±±»µ÷ÓÃ
+	 * å…³é—­Webåº”ç”¨æ—¶è¢«è°ƒç”¨
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {

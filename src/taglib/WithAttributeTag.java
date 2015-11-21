@@ -9,13 +9,13 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
- * 2£¬Ò»¸ö´øÊôĞÔµÄ×Ô¶¨Òå±êÇ©Àà
+ * 2ï¼Œä¸€ä¸ªå¸¦å±æ€§çš„è‡ªå®šä¹‰æ ‡ç­¾ç±»
  * <p>
- * ´øÊôĞÔ±êÇ©±ØĞëÎªÃ¿¸öÊôĞÔÌá¹©¶ÔÓ¦µÄsetterºÍgetter·½·¨¡£
+ * å¸¦å±æ€§æ ‡ç­¾å¿…é¡»ä¸ºæ¯ä¸ªå±æ€§æä¾›å¯¹åº”çš„setterå’Œgetteræ–¹æ³•ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê10ÔÂ11ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´10æœˆ11æ—¥
  */
 public class WithAttributeTag extends SimpleTagSupport {
 

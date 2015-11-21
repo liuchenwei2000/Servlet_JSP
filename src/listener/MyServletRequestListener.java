@@ -7,25 +7,25 @@ import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 
 /**
- * ServletRequestListenerÊ¾Àı
+ * ServletRequestListenerç¤ºä¾‹
  * <p>
- * ServletRequestListenerÓÃÓÚ¼àÌıÓÃ»§ÇëÇó¡£
+ * ServletRequestListenerç”¨äºç›‘å¬ç”¨æˆ·è¯·æ±‚ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class MyServletRequestListener implements ServletRequestListener {
 
 	/**
-	 * ÓÃ»§ÇëÇóµ½´ï£¬ServletRequestÊµÀı±»³õÊ¼»¯Ê±´¥·¢¡£
+	 * ç”¨æˆ·è¯·æ±‚åˆ°è¾¾ï¼ŒServletRequestå®ä¾‹è¢«åˆå§‹åŒ–æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void requestInitialized(ServletRequestEvent arg0) {
 	}
 	
 	/**
-	 * ÓÃ»§ÇëÇó½áÊø£¬ServletRequestÊµÀı±»Ïú»ÙÊ±´¥·¢¡£
+	 * ç”¨æˆ·è¯·æ±‚ç»“æŸï¼ŒServletRequestå®ä¾‹è¢«é”€æ¯æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void requestDestroyed(ServletRequestEvent arg0) {

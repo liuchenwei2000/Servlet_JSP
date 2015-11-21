@@ -1,7 +1,7 @@
 
-Servlet API�ṩ�˴���������������WebӦ�õ��ڲ��¼����Ӷ�������Web�ڲ��¼�����WebӦ�ñ�������WebӦ�ñ�ֹͣ���û�session��ʼ���û�session�������û����󵽴
-����ʱ�ص��¼��������ڵķ�����
+Servlet API提供了大量监听器来监听Web应用的内部事件，从而允许当Web内部事件（如Web应用被启动、Web应用被停止、用户session开始、用户session结束、用户请求到达）
+发生时回调事件监听器内的方法。
 
-ʹ��Listenerֻ��Ҫ�������裺
-1������Listenerʵ���ࡣ
-2������Listener��web.xml�����ã���
+使用Listener只需要两个步骤：
+1，定义Listener实现类。
+2，部署Listener（web.xml中配置）。

@@ -14,27 +14,27 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Í¼Æ¬·ÀµÁÁ´¹ıÂËÆ÷
+ * å›¾ç‰‡é˜²ç›—é“¾è¿‡æ»¤å™¨
  * <p>
- * ÎªÁË·ÀÖ¹±¾Õ¾ÄÚµÄ×ÊÔ´±»ÆäËûÍøÕ¾µÁÁ´£¬¿ÉÒÔÊ¹ÓÃ¹ıÂËÆ÷Íê³É·ÀµÁÁ´µÄ¹¦ÄÜ¡£
+ * ä¸ºäº†é˜²æ­¢æœ¬ç«™å†…çš„èµ„æºè¢«å…¶ä»–ç½‘ç«™ç›—é“¾ï¼Œå¯ä»¥ä½¿ç”¨è¿‡æ»¤å™¨å®Œæˆé˜²ç›—é“¾çš„åŠŸèƒ½ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ8ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ8æ—¥
  */
 public class ImageRedirectFilter implements Filter {
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		// »ñÈ¡ÇëÇóÊÇ´ÓÄÄ¸öÒ³ÃæÁ´½Ó¹ıÀ´µÄ£¬·şÎñÆ÷¿ÉÒÔ»ñµÃ´ËĞÅÏ¢½øĞĞºóĞø´¦Àí¡£
+		// è·å–è¯·æ±‚æ˜¯ä»å“ªä¸ªé¡µé¢é“¾æ¥è¿‡æ¥çš„ï¼ŒæœåŠ¡å™¨å¯ä»¥è·å¾—æ­¤ä¿¡æ¯è¿›è¡Œåç»­å¤„ç†ã€‚
 		String referer = ((HttpServletRequest) request).getHeader("Referer");
 		String serverName = request.getServerName();
 		
-		System.out.println("¡¾referer¡¿" + referer + " ¡¾servername¡¿" + serverName);
+		System.out.println("ã€refererã€‘" + referer + " ã€servernameã€‘" + serverName);
 		
 		if (referer == null || !referer.contains(serverName)) {
-			// Èç¹ûÁ´½ÓµØÖ·À´×ÔÆäËûÍøÕ¾£¬Ôò·µ»Ø´íÎóÍ¼Æ¬
+			// å¦‚æœé“¾æ¥åœ°å€æ¥è‡ªå…¶ä»–ç½‘ç«™ï¼Œåˆ™è¿”å›é”™è¯¯å›¾ç‰‡
 			request.getRequestDispatcher("/images/error.png").forward(request, response);
 		} else {
 			chain.doFilter(request, response);

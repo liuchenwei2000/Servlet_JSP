@@ -1,37 +1,37 @@
 
-WAR �ļ�
+WAR 文件
 
-WAR �ļ����� Web Archive����ʵ���Ͼ��� Jar �ļ���ֻ����չ����ͬ���ˡ�
-���� WAR �ļ�ʱ�����ǰ����� WebӦ�ýṹ��ȥ�� Web Ӧ��������Ŀ¼��Ҳ���ǰ� WEB-INF ֮�ϵ�һ��Ŀ¼ȥ����ѹ����������ָ��һ�� .war ��չ����
-�� Tomcat �У�WAR �ļ����ļ����ͻ��Ϊ Web Ӧ�õ����֣��Ⲣ���ǹ淶��ÿ�����������Լ����ض�ʵ�֣���
+WAR 文件代表 Web Archive，它实际上就是 Jar 文件，只是扩展名不同罢了。
+建立 WAR 文件时，就是把整个 Web应用结构（去掉 Web 应用上下文目录，也就是把 WEB-INF 之上的一级目录去掉）压缩起来，并指定一个 .war 扩展名。
+在 Tomcat 中，WAR 文件的文件名就会成为 Web 应用的名字（这并不是规范，每个容器都有自己的特定实现）。
 
-WAR �ļ������ļ�����ʽ����ķ�ʽ������ͬ��ֻ�� WAR �ļ������������������ԡ���һ�� WAR �ļ��У������� META-INF/MANIFEST.MF �ļ��������������ԣ�
-�����ڲ���ʱ���ܼ�������ܷ��ҵ�Ӧ�������İ����ࡣҲ����˵��������ʱ���������������·����û���ҵ���������Դ��Ҫ���ض��࣬�ͻ�����⣬�����صȵ�������������Դʱ�ŷ���������⡣
-
-
-����̬HTML��JSPʱ������ѡ���Ƿ������� Web Ӧ���ⲿֱ�ӷ��ʡ���ν��ֱ�ӷ�����ָ�ͻ����������������Դ��·�����������ͻ᷵�������Դ��
-����ֻҪ���ļ����� WEB-INF �¾��ܱ���ֱ�ӷ��ʣ��������Ӧ�ò���Ϊһ�� WAR �ļ������԰Ѳ�����ֱ�ӷ��ʵ��ļ����� META-INF �¡�
-����������õ��ͻ�������Ҫ WEB-INF �� META-INF �µ��ļ��������϶�����Ӧһ�� 404 ����
-
-�����ܹ��Զ��ؽ� WEB-INF/lib �е�JAR�ļ���������·���У��ͺ������Щ����� WEB-INF/classes Ŀ¼��һ����
-���ǣ����������Ȳ��� WEB-INF/classes Ŀ¼�е��࣬Ȼ���ٲ��� WEB-INF/lib �е�JAR�ļ���
+WAR 文件和以文件夹形式部署的方式基本相同，只是 WAR 文件还可以声明库依赖性。在一个 WAR 文件中，可以在 META-INF/MANIFEST.MF 文件中声明库依赖性，
+这样在部署时就能检查容器能否找到应用依赖的包和类。也就是说，请求到来时，如果容器在其类路径中没有找到所请求资源需要的特定类，就会出问题，而不必等到真正的请求资源时才发现这个问题。
 
 
-Servlet ӳ��
+部署静态HTML和JSP时，可以选择是否允许从 Web 应用外部直接访问。所谓可直接访问是指客户在浏览器中输入资源的路径，服务器就会返回这个资源。
+但是只要把文件放在 WEB-INF 下就能避免直接访问，或者如果应用部署为一个 WAR 文件，可以把不允许直接访问的文件放在 META-INF 下。
+如果服务器得到客户请求需要 WEB-INF 或 META-INF 下的文件，容器肯定会响应一个 404 错误。
 
-���� servlet ӳ�䣬Ҫ��֯���������ṹ��ʵ�ʵ�����Ŀ¼���ļ��ṹ����Ҳ�� Web Ӧ����Դ���ڵľ���ṹ������һ��������/�߼��ṹ��
-web.xml �е� <url-pattern> ����ӳ�䵽 <servlet-name> �����Ԫ�أ�<servlet-name> Ԫ���� servlet ӳ��ļ������ǰ����� <url-pattern> ӳ�䵽����� servlet �ࡣ
-�ͻ���  <url-pattern> ���� servlet�������ǰ� <servlet-name> �� <servlet-class>��
+容器能够自动地将 WEB-INF/lib 中的JAR文件放在其类路径中，就好像把这些类放在 WEB-INF/classes 目录中一样。
+但是，容器会优先查找 WEB-INF/classes 目录中的类，然后再查找 WEB-INF/lib 中的JAR文件。
 
-���� <url-pattern> Ԫ��
-1����ȫƥ��
+
+Servlet 映射
+
+利用 servlet 映射，要组织建立两个结构：实际的物理目录和文件结构，这也是 Web 应用资源所在的具体结构，还有一个是虚拟/逻辑结构。
+web.xml 中的 <url-pattern> 不会映射到 <servlet-name> 以外的元素，<servlet-name> 元素是 servlet 映射的键，它们把请求 <url-pattern> 映射到具体的 servlet 类。
+客户按  <url-pattern> 请求 servlet，而不是按 <servlet-name> 或 <servlet-class>。
+
+三种 <url-pattern> 元素
+1，完全匹配
 <url-pattern>/Test/login.do</url-pattern> 
-������ / ��ͷ����������չ�����������衣
-2��Ŀ¼ƥ��
+必须以 / 开头，可以有扩展名，但不必需。
+2，目录匹配
 <url-pattern>/Test/*</url-pattern> 
-������ / ��ͷ��������һ������Ŀ¼��ʵ��Ŀ¼��������һ�� /* ������
-3����չ��ƥ��
+必须以 / 开头，可以是一个虚拟目录或实际目录，总是以一个 /* 结束。
+3，扩展名匹配
 <url-pattern>*.do</url-pattern> 
-������һ�� * ��ͷ�����������һ����ż���չ����.do��.jsp�ȣ���
+必须以一个 * 开头，后面必须有一个点号加扩展名（.do、.jsp等）。
 
-�������Ȳ�����ȫƥ�䣬����Ҳ����Ļ����ٲ���Ŀ¼ƥ�䣬���Ҳ����Ļ����Ͳ�����չ��ƥ�䡣�����һ����������Ŀ¼ <url-pattern> ƥ�䣬������ѡ����ģ����ض��ģ�ƥ�䡣
+容器首先查找完全匹配，如果找不到的话，再查找目录匹配，还找不到的话，就查找扩展名匹配。如果有一个请求与多个目录 <url-pattern> 匹配，容器会选择最长的（最特定的）匹配。

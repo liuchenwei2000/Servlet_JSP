@@ -18,13 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
- * JNDI²âÊÔServlet
+ * JNDIæµ‹è¯•Servlet
  * <p>
- * JNDI×ÊÔ´ÔÚMETA-INF/context.xmlÖĞ¡£
+ * JNDIèµ„æºåœ¨META-INF/context.xmlä¸­ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ1ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ1æ—¥
  */
 public class JndiTestServlet extends HttpServlet {
 
@@ -44,9 +44,9 @@ public class JndiTestServlet extends HttpServlet {
 			throws ServletException, IOException {
 		Connection connection = null;
 		try {
-			// ³õÊ¼»¯²éÕÒÃüÃû¿Õ¼ä
+			// åˆå§‹åŒ–æŸ¥æ‰¾å‘½åç©ºé—´
 			Context context = new InitialContext();
-			// ÕÒµ½ DataSource£¬¶ÔÃû³Æ½øĞĞ¶¨Î»java:comp/envÊÇ±ØĞë¼ÓµÄ£¬ºóÃæ¸ú×ÊÔ´Ãû
+			// æ‰¾åˆ° DataSourceï¼Œå¯¹åç§°è¿›è¡Œå®šä½java:comp/envæ˜¯å¿…é¡»åŠ çš„ï¼Œåé¢è·Ÿèµ„æºå
 			DataSource ds = (DataSource) context.lookup("java:comp/env/jdbc/test");
 			
 			connection = ds.getConnection();

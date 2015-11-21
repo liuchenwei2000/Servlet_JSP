@@ -13,48 +13,48 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
 /**
- * ×Ô¶¨ÒåµÄ HttpServletResponse ÊµÏÖ
+ * è‡ªå®šä¹‰çš„ HttpServletResponse å®ç°
  * <p>
- * Èç¹ûÏë´´½¨¶¨ÖÆÇëÇó»òÏìÓ¦¶ÔÏó£¬Ö»ĞèÒª¼Ì³ĞÄ³¸öÇëÇó»òÏìÓ¦°ü×°Àà¼´¿É¡££¨×°ÊÎÄ£Ê½µÄÌåÏÖ£©
- * °ü×°Àà°ü×°ÁËÊµ¼ÊµÄÇëÇó»òÏìÓ¦¶ÔÏó£¬¶øÇÒ°Ñµ÷ÓÃÎ¯ÍĞ¸øÊµ¼ÊµÄ¶ÔÏó£¬»¹ÔÊĞí¶Ô¶¨ÖÆÇëÇó»òÏìÓ¦×öËùĞèµÄ¶îÍâ´¦Àí¡£
+ * å¦‚æœæƒ³åˆ›å»ºå®šåˆ¶è¯·æ±‚æˆ–å“åº”å¯¹è±¡ï¼Œåªéœ€è¦ç»§æ‰¿æŸä¸ªè¯·æ±‚æˆ–å“åº”åŒ…è£…ç±»å³å¯ã€‚ï¼ˆè£…é¥°æ¨¡å¼çš„ä½“ç°ï¼‰
+ * åŒ…è£…ç±»åŒ…è£…äº†å®é™…çš„è¯·æ±‚æˆ–å“åº”å¯¹è±¡ï¼Œè€Œä¸”æŠŠè°ƒç”¨å§”æ‰˜ç»™å®é™…çš„å¯¹è±¡ï¼Œè¿˜å…è®¸å¯¹å®šåˆ¶è¯·æ±‚æˆ–å“åº”åšæ‰€éœ€çš„é¢å¤–å¤„ç†ã€‚
  * <p>
- * 4¸ö³£ÓÃ°ü×°Àà£º
- * ServletRequestWrapper¡¢HttpServletRequestWrapper¡¢ServletResponseWrapper¡¢HttpServletResponseWrapper¡£
+ * 4ä¸ªå¸¸ç”¨åŒ…è£…ç±»ï¼š
+ * ServletRequestWrapperã€HttpServletRequestWrapperã€ServletResponseWrapperã€HttpServletResponseWrapperã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê7ÔÂ10ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´7æœˆ10æ—¥
  */
 public class CompressionResponseWrapper extends HttpServletResponseWrapper {
 
-	private GZIPServletOutputStream gzipOS;// servlet ÏìÓ¦µÄÑ¹ËõÊä³öÁ÷
+	private GZIPServletOutputStream gzipOS;// servlet å“åº”çš„å‹ç¼©è¾“å‡ºæµ
 
-	private PrintWriter pw;// Ñ¹ËõÊä³öÁ÷µÄ PrintWriter ¶ÔÏó
+	private PrintWriter pw;// å‹ç¼©è¾“å‡ºæµçš„ PrintWriter å¯¹è±¡
 
 	/**
 	 * @param response
-	 *            Êµ¼ÊµÄ ÏìÓ¦¶ÔÏó
+	 *            å®é™…çš„ å“åº”å¯¹è±¡
 	 */
 	public CompressionResponseWrapper(HttpServletResponse response) {
 		super(response);
 	}
 
 	/** 
-	 * Ïòµ÷ÓÃÕß·µ»ØÒ»¸öÓĞÑ¹Ëõ¹¦ÄÜµÄ ServletOutputStream
+	 * å‘è°ƒç”¨è€…è¿”å›ä¸€ä¸ªæœ‰å‹ç¼©åŠŸèƒ½çš„ ServletOutputStream
 	 * 
 	 * @see javax.servlet.ServletResponseWrapper#getOutputStream()
 	 */
 	@Override
 	public ServletOutputStream getOutputStream() throws IOException {
 		if (this.gzipOS == null) {
-			// ÓÃÑ¹ËõÊä³öÁ÷°ü×°Ô­À´µÄÏìÓ¦Êä³öÁ÷
+			// ç”¨å‹ç¼©è¾“å‡ºæµåŒ…è£…åŸæ¥çš„å“åº”è¾“å‡ºæµ
 			this.gzipOS = new GZIPServletOutputStream(getResponse().getOutputStream());
 		}
 		return this.gzipOS;
 	}
 
 	/** 
-	 * Ïòµ÷ÓÃÕß·µ»ØÒ»¸öÓĞÑ¹Ëõ¹¦ÄÜµÄ PrintWriter
+	 * å‘è°ƒç”¨è€…è¿”å›ä¸€ä¸ªæœ‰å‹ç¼©åŠŸèƒ½çš„ PrintWriter
 	 * 
 	 * @see javax.servlet.ServletResponseWrapper#getWriter()
 	 */
@@ -68,7 +68,7 @@ public class CompressionResponseWrapper extends HttpServletResponseWrapper {
 
 	@Override
 	public void setContentLength(int len) {
-		// ºöÂÔ´Ë·½·¨ÊµÏÖ£¬ÒòÎªÊä³ö»á±»Ñ¹Ëõ
+		// å¿½ç•¥æ­¤æ–¹æ³•å®ç°ï¼Œå› ä¸ºè¾“å‡ºä¼šè¢«å‹ç¼©
 	}
 
 	public GZIPOutputStream getGZIPOutputStream() {
@@ -76,11 +76,11 @@ public class CompressionResponseWrapper extends HttpServletResponseWrapper {
 	}
 
 	/**
-	 * Ñ¹ËõÊä³öÁ÷°ü×°Æ÷£¨×°ÊÎÄ£Ê½£©
+	 * å‹ç¼©è¾“å‡ºæµåŒ…è£…å™¨ï¼ˆè£…é¥°æ¨¡å¼ï¼‰
 	 */
 	class GZIPServletOutputStream extends ServletOutputStream {
 
-		private GZIPOutputStream realOutputStream;// ÕæÕıµÄÑ¹ËõÊä³öÁ÷
+		private GZIPOutputStream realOutputStream;// çœŸæ­£çš„å‹ç¼©è¾“å‡ºæµ
 
 		public GZIPServletOutputStream(ServletOutputStream os) throws IOException {
 			this.realOutputStream = new GZIPOutputStream(os);
@@ -88,7 +88,7 @@ public class CompressionResponseWrapper extends HttpServletResponseWrapper {
 
 		@Override
 		public void write(int b) throws IOException {
-			// Õâ¸ö·½·¨°Ñ write() µ÷ÓÃÎ¯ÍĞ¸ø GZIP Ñ¹ËõÁ÷£¬´Ó¶øÊµÏÖÑ¹Ëõ×°ÊÎ¡£
+			// è¿™ä¸ªæ–¹æ³•æŠŠ write() è°ƒç”¨å§”æ‰˜ç»™ GZIP å‹ç¼©æµï¼Œä»è€Œå®ç°å‹ç¼©è£…é¥°ã€‚
 			realOutputStream.write(b);
 		}
 	}

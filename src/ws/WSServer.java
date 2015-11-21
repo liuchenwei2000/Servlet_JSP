@@ -8,11 +8,11 @@ import javax.servlet.ServletContextListener;
 import javax.xml.ws.Endpoint;
 
 /**
- * Æô¶¯webserviceµÄ¼àÌıÆ÷
+ * å¯åŠ¨webserviceçš„ç›‘å¬å™¨
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê5ÔÂ21ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´5æœˆ21æ—¥
  */
 public class WSServer implements ServletContextListener {
 

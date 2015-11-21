@@ -13,11 +13,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * ´íÎóµÄÑ¹ËõÏìÓ¦ Filter Ê¾Àı
+ * é”™è¯¯çš„å‹ç¼©å“åº” Filter ç¤ºä¾‹
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ1ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ1æ—¥
  */
 public class WrongCompressionFilter implements Filter {
 
@@ -30,17 +30,17 @@ public class WrongCompressionFilter implements Filter {
 	}
 
 	/**
-	 * ½øĞĞÏìÓ¦Ñ¹Ëõ²Ù×÷
+	 * è¿›è¡Œå“åº”å‹ç¼©æ“ä½œ
 	 * <p>
-	 * ´íÎóÔ­Òò£º
-	 * ÒòÎª chain.doFilter(req, resp) ·½·¨µÄµ÷ÓÃÒÑ¾­°ÑÏìÓ¦¶ÔÏó´«µİ¸øÁË servlet£¬
-	 * ¶ø servlet ÔÚÍê³ÉËüµÄ¹¤×÷ºó£¬Ö±½Ó½«ÏìÓ¦·¢»Ø¸øÁË¿Í»§£¬¹ıÂËÆ÷ÔÙÏëÑ¹ËõÊä³öÒÑ¾­ÍíÁË¡£
+	 * é”™è¯¯åŸå› ï¼š
+	 * å› ä¸º chain.doFilter(req, resp) æ–¹æ³•çš„è°ƒç”¨å·²ç»æŠŠå“åº”å¯¹è±¡ä¼ é€’ç»™äº† servletï¼Œ
+	 * è€Œ servlet åœ¨å®Œæˆå®ƒçš„å·¥ä½œåï¼Œç›´æ¥å°†å“åº”å‘å›ç»™äº†å®¢æˆ·ï¼Œè¿‡æ»¤å™¨å†æƒ³å‹ç¼©è¾“å‡ºå·²ç»æ™šäº†ã€‚
 	 */
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
-		// ÕâÀï½øĞĞÇëÇó´¦Àí
+		// è¿™é‡Œè¿›è¡Œè¯·æ±‚å¤„ç†
 		chain.doFilter(req, resp);
-		// ÕâÀï½øĞĞÑ¹ËõÏìÓ¦ µÄÂß¼­
+		// è¿™é‡Œè¿›è¡Œå‹ç¼©å“åº” çš„é€»è¾‘
 	}
 }

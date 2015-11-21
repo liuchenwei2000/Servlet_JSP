@@ -7,38 +7,38 @@ import javax.servlet.http.HttpSessionActivationListener;
 import javax.servlet.http.HttpSessionEvent;
 
 /**
- * HttpSessionActivationListenerÊ¾Àı
+ * HttpSessionActivationListenerç¤ºä¾‹
  * <p>
- * HttpSessionActivationListenerÓÃÓÚ¼àÌı HttpSession ºÎÊ±´ÓÒ»¸ö VM ÒÆµ½ÁíÒ»¸ö VM¡£
+ * HttpSessionActivationListenerç”¨äºç›‘å¬ HttpSession ä½•æ—¶ä»ä¸€ä¸ª VM ç§»åˆ°å¦ä¸€ä¸ª VMã€‚
  * <p>
- * Ö»ÓĞ HttpSession ¶ÔÏó£¨¼°ÆäÊôĞÔ£©»á´ÓÒ»¸öVMÒÆµ½ÁíÒ»¸öVM¡£
- * Ã¿¸öVMÖĞÓĞÒ»¸ö ServletContext£¬Ã¿¸öVMÉÏµÄÃ¿¸ö servlet ÓĞÒ»¸öServletConfig£¬
- * µ«ÊÇ¶ÔÓÚÃ¿¸öWebÓ¦ÓÃµÄÒ»¸ö¸ø¶¨µÄ»á»°ID£¬Ö»ÓĞÒ»¸ö HttpSession ¶ÔÏó£¬¶ø²»ÂÛÓ¦ÓÃ·Ö²¼ÔÚ¶àÉÙ¸öVMÉÏ¡£
- * ÔÚÈÎºÎ¸ø¶¨Ê±¿Ì£¬»á»°Ö»´æÔÚÓÚÒ»¸öÎ»ÖÃ£¬¶ÔÓÚÒ»¸ö¸ø¶¨µÄWebÓ¦ÓÃ£¬ÏàÍ¬µÄ»á»°ID²»»áÍ¬Ê±³öÏÖÔÚÁ½¸öVMÖĞ¡£
- * ¾¡¹ÜÓ¦ÓÃµÄÆäËû²¿·Ö»áÔÚÃ¿¸ö½Úµã/VMÉÏ¸´ÖÆ£¬µ«»á»°¶ÔÏó²»»á¸´ÖÆ£¬¶øÖ»ÊÇÒÆ¶¯¡£
+ * åªæœ‰ HttpSession å¯¹è±¡ï¼ˆåŠå…¶å±æ€§ï¼‰ä¼šä»ä¸€ä¸ªVMç§»åˆ°å¦ä¸€ä¸ªVMã€‚
+ * æ¯ä¸ªVMä¸­æœ‰ä¸€ä¸ª ServletContextï¼Œæ¯ä¸ªVMä¸Šçš„æ¯ä¸ª servlet æœ‰ä¸€ä¸ªServletConfigï¼Œ
+ * ä½†æ˜¯å¯¹äºæ¯ä¸ªWebåº”ç”¨çš„ä¸€ä¸ªç»™å®šçš„ä¼šè¯IDï¼Œåªæœ‰ä¸€ä¸ª HttpSession å¯¹è±¡ï¼Œè€Œä¸è®ºåº”ç”¨åˆ†å¸ƒåœ¨å¤šå°‘ä¸ªVMä¸Šã€‚
+ * åœ¨ä»»ä½•ç»™å®šæ—¶åˆ»ï¼Œä¼šè¯åªå­˜åœ¨äºä¸€ä¸ªä½ç½®ï¼Œå¯¹äºä¸€ä¸ªç»™å®šçš„Webåº”ç”¨ï¼Œç›¸åŒçš„ä¼šè¯IDä¸ä¼šåŒæ—¶å‡ºç°åœ¨ä¸¤ä¸ªVMä¸­ã€‚
+ * å°½ç®¡åº”ç”¨çš„å…¶ä»–éƒ¨åˆ†ä¼šåœ¨æ¯ä¸ªèŠ‚ç‚¹/VMä¸Šå¤åˆ¶ï¼Œä½†ä¼šè¯å¯¹è±¡ä¸ä¼šå¤åˆ¶ï¼Œè€Œåªæ˜¯ç§»åŠ¨ã€‚
  * <p>
- * ±¾½Ó¿ÚÒ»°ãÓÉÊôĞÔÀàÀ´ÊµÏÖ¡£
+ * æœ¬æ¥å£ä¸€èˆ¬ç”±å±æ€§ç±»æ¥å®ç°ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ29ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ29æ—¥
  */
 public class MyHttpSessionActivationListener implements HttpSessionActivationListener {
 
 	
 	/** 
-	 * µ±»á»°½«Òª´ÓÔ­VMÉÏ¶Û»¯µÄÊ±ºò
+	 * å½“ä¼šè¯å°†è¦ä»åŸVMä¸Šé’åŒ–çš„æ—¶å€™
 	 */
 	@Override
 	public void sessionWillPassivate(HttpSessionEvent arg0) {
-		// ½«·Ç Serialiazable ×Ö¶ÎÖÃÎªÄ³ÖÖ×´Ì¬£¬ÒÔ±ãË³ÀûµØÇ¨ÒÆµ½Ò»¸öĞÂVM
+		// å°†é Serialiazable å­—æ®µç½®ä¸ºæŸç§çŠ¶æ€ï¼Œä»¥ä¾¿é¡ºåˆ©åœ°è¿ç§»åˆ°ä¸€ä¸ªæ–°VM
 	}
 	
 	/** 
-	 * µ±»á»°½«Òª´ÓĞÂVMÉÏ¼¤»îµÄÊ±ºò
+	 * å½“ä¼šè¯å°†è¦ä»æ–°VMä¸Šæ¿€æ´»çš„æ—¶å€™
 	 */
 	@Override
 	public void sessionDidActivate(HttpSessionEvent arg0) {
-		// ÕâĞ©´úÂëÓÃÓÚ»Ö¸´×Ö¶Î£¬È¡ÏûÔÚ sessionWillPassivate() ÖĞ×öµÄ¶¯×÷¡£
+		// è¿™äº›ä»£ç ç”¨äºæ¢å¤å­—æ®µï¼Œå–æ¶ˆåœ¨ sessionWillPassivate() ä¸­åšçš„åŠ¨ä½œã€‚
 	}
 }

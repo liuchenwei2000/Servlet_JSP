@@ -14,44 +14,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ÏìÓ¦£¨response£©Ïê½â
+ * å“åº”ï¼ˆresponseï¼‰è¯¦è§£
  * <p>
- * ´ó¶àÊıÇé¿öÏÂ£¬Ê¹ÓÃÏìÓ¦Ö»ÊÇÎªÁËÏò¿Í»§·¢»ØÊı¾İ£¬»á¶ÔÏìÓ¦µ÷ÓÃÁ½¸ö·½·¨£º 
- * setContentType() ºÍ  getWriter()/getOutputStream¡£
+ * å¤§å¤šæ•°æƒ…å†µä¸‹ï¼Œä½¿ç”¨å“åº”åªæ˜¯ä¸ºäº†å‘å®¢æˆ·å‘å›æ•°æ®ï¼Œä¼šå¯¹å“åº”è°ƒç”¨ä¸¤ä¸ªæ–¹æ³•ï¼š 
+ * setContentType() å’Œ  getWriter()/getOutputStreamã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class ResponseTest extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * ÏìÓ¦GETÇëÇó
+	 * å“åº”GETè¯·æ±‚
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		/*
-		 * ·şÎñÆ÷±ØĞëÒª¸æËßä¯ÀÀÆ÷·¢»ØÁËĞ©Ê²Ã´£¬ÕâÑùä¯ÀÀÆ÷²ÅÄÜÕıÈ·µÄÕ¹ÏÖÏìÓ¦£¬¿ÉÄÜÆô¶¯Ò»¸ö¸¨ÖúÓ¦ÓÃ£¬
-		 * ÈçPDFÔÄ¶ÁÆ÷»òÊÓÆµ²¥·ÅÆ÷£¬Ò²¿ÉÄÜÏòÓÃ»§³ÊÏÖHTML£¬»òÕß°ÑÏìÓ¦µÄ×Ö½Ú±£´æÎªÒ»¸öÏÂÔØÎÄ¼şµÈ¡£
+		 * æœåŠ¡å™¨å¿…é¡»è¦å‘Šè¯‰æµè§ˆå™¨å‘å›äº†äº›ä»€ä¹ˆï¼Œè¿™æ ·æµè§ˆå™¨æ‰èƒ½æ­£ç¡®çš„å±•ç°å“åº”ï¼Œå¯èƒ½å¯åŠ¨ä¸€ä¸ªè¾…åŠ©åº”ç”¨ï¼Œ
+		 * å¦‚PDFé˜…è¯»å™¨æˆ–è§†é¢‘æ’­æ”¾å™¨ï¼Œä¹Ÿå¯èƒ½å‘ç”¨æˆ·å‘ˆç°HTMLï¼Œæˆ–è€…æŠŠå“åº”çš„å­—èŠ‚ä¿å­˜ä¸ºä¸€ä¸ªä¸‹è½½æ–‡ä»¶ç­‰ã€‚
 		 * 
-		 * ÄÚÈİÀàĞÍ ContentType Ö¸µÄ¾ÍÊÇMIMEÀàĞÍ£¬ËüÊÇHTTPÏìÓ¦ÖĞ±ØĞëÓĞµÄÒ»¸öĞÅÏ¢¡£
+		 * å†…å®¹ç±»å‹ ContentType æŒ‡çš„å°±æ˜¯MIMEç±»å‹ï¼Œå®ƒæ˜¯HTTPå“åº”ä¸­å¿…é¡»æœ‰çš„ä¸€ä¸ªä¿¡æ¯ã€‚
 		 * 
-		 * ³£ÓÃMIMEÀàĞÍÓĞ£ºtext/html¡¢application/pdf¡¢video/quicktime¡¢image/jpeg¡¢application/jar¡£
+		 * å¸¸ç”¨MIMEç±»å‹æœ‰ï¼štext/htmlã€application/pdfã€video/quicktimeã€image/jpegã€application/jarã€‚
 		 */
 		resp.setContentType("image/png");
 
-		// "/" ±íÊ¾WebÓ¦ÓÃµÄ¸ù
+		// "/" è¡¨ç¤ºWebåº”ç”¨çš„æ ¹
 		InputStream is = getServletContext().getResourceAsStream("/images/cross.png");
 
 		int len = 0;
 		byte[] buffer = new byte[1024 * 4];
 
 		/*
-		 * ServletResponse ½Ó¿ÚÖ»Ìá¹©ÁËÁ½¸öÁ÷¿É¹©Ñ¡Ôñ£º 
-		 * PrintWriter£º×Ö·ûÁ÷£¬Ê¹ÓÃËüµÄ println() ·½·¨Ğ´Êı¾İ¡£
-		 * ServletOutputStream£º×Ö½ÚÁ÷£¬Ê¹ÓÃËüµÄ write() ·½·¨Ğ´Êı¾İ¡£
+		 * ServletResponse æ¥å£åªæä¾›äº†ä¸¤ä¸ªæµå¯ä¾›é€‰æ‹©ï¼š 
+		 * PrintWriterï¼šå­—ç¬¦æµï¼Œä½¿ç”¨å®ƒçš„ println() æ–¹æ³•å†™æ•°æ®ã€‚
+		 * ServletOutputStreamï¼šå­—èŠ‚æµï¼Œä½¿ç”¨å®ƒçš„ write() æ–¹æ³•å†™æ•°æ®ã€‚
 		 */
 		ServletOutputStream outputStream = resp.getOutputStream();
 		while ((len = is.read(buffer)) != -1) {
@@ -63,24 +63,24 @@ public class ResponseTest extends HttpServlet {
 	}
 	
 	/**
-	 * ÏìÓ¦POSTÇëÇó
+	 * å“åº”POSTè¯·æ±‚
 	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// forward ÊÇÇëÇó×ª·¢£¬ÊÇ·şÎñÆ÷¶ËÌø×ª
+		// forward æ˜¯è¯·æ±‚è½¬å‘ï¼Œæ˜¯æœåŠ¡å™¨ç«¯è·³è½¬
 		RequestDispatcher dispatcher = req.getRequestDispatcher("country.jsp");
 		dispatcher.forward(req, resp);
 		
-		// sendRedirect ÊÇÏìÓ¦ÖØ¶¨Ïò£¬ÊÇ¿Í»§¶ËÌø×ª
-		// ¿ÉÒÔÊ¹ÓÃÏà¶Ô URL ×÷Îª²ÎÊı£¬ÓĞÁ½ÖÖÀàĞÍ£ºÇ°ÃæÃ»ÓĞĞ±ÏßºÍÓĞĞ±Ïß£¨"/"£©
-		// Ã»ÓĞĞ±ÏßµÄ URL £¬ÈİÆ÷»áÏà¶ÔÓÚÔ­ÏÈµÄÇëÇó URL ½¨Á¢ÍêÕûµÄ URL £¬Èç
-		// Ô­±¾ÇëÇóµØÖ·ÊÇ http://localhost/app1/foo.do£¬ÏÂÃæµÄµ÷ÓÃ»áÖØ¶¨Ïòµ½ http://localhost/app1/test/bar.do
+		// sendRedirect æ˜¯å“åº”é‡å®šå‘ï¼Œæ˜¯å®¢æˆ·ç«¯è·³è½¬
+		// å¯ä»¥ä½¿ç”¨ç›¸å¯¹ URL ä½œä¸ºå‚æ•°ï¼Œæœ‰ä¸¤ç§ç±»å‹ï¼šå‰é¢æ²¡æœ‰æ–œçº¿å’Œæœ‰æ–œçº¿ï¼ˆ"/"ï¼‰
+		// æ²¡æœ‰æ–œçº¿çš„ URL ï¼Œå®¹å™¨ä¼šç›¸å¯¹äºåŸå…ˆçš„è¯·æ±‚ URL å»ºç«‹å®Œæ•´çš„ URL ï¼Œå¦‚
+		// åŸæœ¬è¯·æ±‚åœ°å€æ˜¯ http://localhost/app1/foo.doï¼Œä¸‹é¢çš„è°ƒç”¨ä¼šé‡å®šå‘åˆ° http://localhost/app1/test/bar.do
 		resp.sendRedirect("test/bar.do");
 		
-		// ÓĞĞ±ÏßµÄURL£¬Õâ¸öĞ±ÏßÒâÎ¶×Å¡°WebÈİÆ÷µÄ¸ù¡±£¬ÈİÆ÷»áÏà¶ÔÓÚ Web Ó¦ÓÃ±¾Éí½¨Á¢ÍêÕûµÄURL£¬¶ø²»ÊÇÏà¶ÔÓÚÇëÇóÔ­À´µÄURL£¬Èç
-		// Ô­±¾ÇëÇóµØÖ·ÊÇ http://localhost/app1/foo.do£¬ÏÂÃæµÄµ÷ÓÃ»áÖØ¶¨Ïòµ½ http://localhost/test/bar.do
-		// test ÊÇÁíÒ»¸öÓĞ±ğÓÚ app1 µÄÓ¦ÓÃ
+		// æœ‰æ–œçº¿çš„URLï¼Œè¿™ä¸ªæ–œçº¿æ„å‘³ç€â€œWebå®¹å™¨çš„æ ¹â€ï¼Œå®¹å™¨ä¼šç›¸å¯¹äº Web åº”ç”¨æœ¬èº«å»ºç«‹å®Œæ•´çš„URLï¼Œè€Œä¸æ˜¯ç›¸å¯¹äºè¯·æ±‚åŸæ¥çš„URLï¼Œå¦‚
+		// åŸæœ¬è¯·æ±‚åœ°å€æ˜¯ http://localhost/app1/foo.doï¼Œä¸‹é¢çš„è°ƒç”¨ä¼šé‡å®šå‘åˆ° http://localhost/test/bar.do
+		// test æ˜¯å¦ä¸€ä¸ªæœ‰åˆ«äº app1 çš„åº”ç”¨
 		resp.sendRedirect("/test/bar.do");
 	}
 }

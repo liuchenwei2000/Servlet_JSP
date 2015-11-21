@@ -7,32 +7,32 @@ import javax.servlet.ServletContextAttributeEvent;
 import javax.servlet.ServletContextAttributeListener;
 
 /**
- * ServletContextAttributeListenerÊ¾Àı
+ * ServletContextAttributeListenerç¤ºä¾‹
  * <p>
- * ServletContextAttributeListenerÓÃÓÚ¼àÌıServletContext·¶Î§ÄÚÊôĞÔµÄ¸Ä±ä¡£
+ * ServletContextAttributeListenerç”¨äºç›‘å¬ServletContextèŒƒå›´å†…å±æ€§çš„æ”¹å˜ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class MyServletContextAttributeListener implements ServletContextAttributeListener {
 
 	/**
-	 * µ±³ÌĞòÏò ServletContext Ìí¼ÓÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºå‘ ServletContext æ·»åŠ å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeAdded(ServletContextAttributeEvent arg0) {
 	}
 
 	/**
-	 * µ±³ÌĞò´Ó ServletContext É¾³ıÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºä» ServletContext åˆ é™¤å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeRemoved(ServletContextAttributeEvent arg0) {
 	}
 
 	/**
-	 * µ±³ÌĞòÌæ»» ServletContext ÖĞµÄÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºæ›¿æ¢ ServletContext ä¸­çš„å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeReplaced(ServletContextAttributeEvent arg0) {

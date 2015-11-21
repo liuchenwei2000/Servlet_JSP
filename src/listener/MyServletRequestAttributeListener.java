@@ -7,32 +7,32 @@ import javax.servlet.ServletRequestAttributeEvent;
 import javax.servlet.ServletRequestAttributeListener;
 
 /**
- * ServletRequestAttributeListenerÊ¾Àı
+ * ServletRequestAttributeListenerç¤ºä¾‹
  * <p>
- * ServletRequestAttributeListenerÓÃÓÚ¼àÌıServletRequest·¶Î§ÄÚÊôĞÔµÄ¸Ä±ä¡£
+ * ServletRequestAttributeListenerç”¨äºç›‘å¬ServletRequestèŒƒå›´å†…å±æ€§çš„æ”¹å˜ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class MyServletRequestAttributeListener implements ServletRequestAttributeListener {
 
 	/**
-	 * µ±³ÌĞòÏò ServletRequest Ìí¼ÓÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºå‘ ServletRequest æ·»åŠ å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeAdded(ServletRequestAttributeEvent arg0) {
 	}
 
 	/**
-	 * µ±³ÌĞò´Ó ServletRequest É¾³ıÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºä» ServletRequest åˆ é™¤å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeRemoved(ServletRequestAttributeEvent arg0) {
 	}
 
 	/**
-	 * µ±³ÌĞòÌæ»» ServletRequest ÖĞµÄÊôĞÔÊ±´¥·¢¡£
+	 * å½“ç¨‹åºæ›¿æ¢ ServletRequest ä¸­çš„å±æ€§æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void attributeReplaced(ServletRequestAttributeEvent arg0) {

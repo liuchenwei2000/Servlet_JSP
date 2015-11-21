@@ -4,16 +4,16 @@
 package servlet.demo;
 
 /**
- * MVCÖ®Model
+ * MVCä¹‹Model
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class CountryHelper {
 
 	public String getArea(String country) {
-		// ÕâÀïÃæµÄ´úÂë¿ÉÒÔÖ´ĞĞ·ÃÎÊÊı¾İ¿âµÄ²Ù×÷µÈ
+		// è¿™é‡Œé¢çš„ä»£ç å¯ä»¥æ‰§è¡Œè®¿é—®æ•°æ®åº“çš„æ“ä½œç­‰
 		if ("USA".equalsIgnoreCase(country)) {
 			return "9,129,091 km2";
 		} else if ("china".equalsIgnoreCase(country)) {

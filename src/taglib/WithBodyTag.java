@@ -10,32 +10,32 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
- * 3��һ������ǩ����Զ����ǩ��
+ * 3，一个带标签体的自定义标签类
  * <p>
- * ����ǩ��ı�ǩ�������ڱ�ǩ��Ƕ���������ݣ�������̬��HTML���ݺͶ�̬��JSP���ݣ���
- * ͨ���������һЩ�߼����㣬���жϺ�ѭ���ȡ�
+ * 带标签体的标签，可以在标签内嵌入其他内容（包括静态的HTML内容和动态的JSP内容）。
+ * 通常用于完成一些逻辑运算，如判断和循环等。
  * <p>
- * �ñ�ǩ�����ã�����ָ�����ϣ�ÿ����һ������Ԫ�أ��������ǩ��һ�Ρ�
+ * 该标签的作用：遍历指定集合，每遍历一个集合元素，即输出标签体一次。
  * 
- * @author ����ΰ
+ * @author 刘晨伟
  * 
- * �������ڣ�2014��10��11��
+ * 创建日期：2014年10月11日
  */
 public class WithBodyTag extends SimpleTagSupport {
 
-	// ��ǩ���ԣ�����ָ���������ļ���
+	// 标签属性，用于指定被迭代的集合
 	private String collection;
-	// ��ǩ���ԣ�����ָ����������Ԫ�ص�����	
+	// 标签属性，用于指定迭代集合元素的名称	
 	private String item;
 	
 	@Override
 	public void doTag() throws JspException, IOException {
-		// �� page scope�л�ȡ��Ϊ collection �ļ��϶���
+		// 从 page scope中获取名为 collection 的集合对象
 		Collection<?> c = (Collection<?>) getJspContext().getAttribute(getCollection());
 		for (Object element : c) {
-			// ����ǰ������Ԫ�����õ� page scope �У��Ա�jspҳ��ʹ��
+			// 将当前迭代的元素设置到 page scope 中，以便jsp页面使用
 			getJspContext().setAttribute(item, element);
-			// ���ظñ�ǩ�������ı�ǩ�壬ִ�иö����invoke()���������������ǩ�����ݡ�
+			// 返回该标签所包含的标签体，执行该对象的invoke()方法，即可输出标签体内容。
 			getJspBody().invoke(null);
 		}
 	}

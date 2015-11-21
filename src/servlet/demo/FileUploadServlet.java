@@ -19,13 +19,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 /**
- * ÎÄ¼şÉÏ´«Servlet
+ * æ–‡ä»¶ä¸Šä¼ Servlet
  * <p>
- * Servlet3.0¿ªÊ¼Ö§³ÖÎÄ¼şÉÏ´«£¬Íê³ÉÎÄ¼şÉÏ´«ÔÙÒ²²»ĞèÒªµÚÈı·½¹¤¾ßÁË¡£
+ * Servlet3.0å¼€å§‹æ”¯æŒæ–‡ä»¶ä¸Šä¼ ï¼Œå®Œæˆæ–‡ä»¶ä¸Šä¼ å†ä¹Ÿä¸éœ€è¦ç¬¬ä¸‰æ–¹å·¥å…·äº†ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014Äê7ÔÂ18ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2014å¹´7æœˆ18æ—¥
  */
 @WebServlet(name = "fileUploadServlet", urlPatterns = "/upload")
 @MultipartConfig
@@ -48,7 +48,7 @@ public class FileUploadServlet extends HttpServlet {
 		String fileName = getFileName(filePart);
 		
 		if(fileName != null) {
-			// ÉÏ´«ÎÄ¼şÔÚ·şÎñÆ÷µÄÕæÊµÂ·¾¶
+			// ä¸Šä¼ æ–‡ä»¶åœ¨æœåŠ¡å™¨çš„çœŸå®è·¯å¾„
 			String newPath = getServletContext().getRealPath("/WEB-INF/uploads") + "\\" + fileName;
 			
 			OutputStream os = null;

@@ -7,26 +7,26 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 /**
- * HttpSessionListenerÊ¾Àı
+ * HttpSessionListenerç¤ºä¾‹
  * <p>
- * HttpSessionListenerÓÃÓÚ¼àÌıÓÃ»§sessionµÄ¿ªÊ¼ºÍ½áÊø¡£
- * ¿ÉÒÔÍ¨¹ı±¾¼àÌıÆ÷Í³¼ÆÏµÍ³µÄÔÚÏßÓÃ»§Êı¡£
+ * HttpSessionListenerç”¨äºç›‘å¬ç”¨æˆ·sessionçš„å¼€å§‹å’Œç»“æŸã€‚
+ * å¯ä»¥é€šè¿‡æœ¬ç›‘å¬å™¨ç»Ÿè®¡ç³»ç»Ÿçš„åœ¨çº¿ç”¨æˆ·æ•°ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
 public class MyHttpSessionListener implements HttpSessionListener {
 
 	/**
-	 * ¿Í»§¶ËÓë·şÎñÆ÷¶Ë»á»°¿ªÊ¼£¬HttpSessionÊµÀı±»³õÊ¼»¯Ê±´¥·¢¡£
+	 * å®¢æˆ·ç«¯ä¸æœåŠ¡å™¨ç«¯ä¼šè¯å¼€å§‹ï¼ŒHttpSessionå®ä¾‹è¢«åˆå§‹åŒ–æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void sessionCreated(HttpSessionEvent arg0) {
 	}
 
 	/**
-	 * ¿Í»§¶ËÓë·şÎñÆ÷¶Ë»á»°½áÊø£¬HttpSessionÊµÀı±»Ïú»ÙÊ±´¥·¢¡£
+	 * å®¢æˆ·ç«¯ä¸æœåŠ¡å™¨ç«¯ä¼šè¯ç»“æŸï¼ŒHttpSessionå®ä¾‹è¢«é”€æ¯æ—¶è§¦å‘ã€‚
 	 */
 	@Override
 	public void sessionDestroyed(HttpSessionEvent arg0) {

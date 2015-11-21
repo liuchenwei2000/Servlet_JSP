@@ -7,37 +7,37 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
 /**
- * Í³¼ÆÔÚÏßÈËÊıµÄListener
+ * ç»Ÿè®¡åœ¨çº¿äººæ•°çš„Listener
  * <p>
- * ÊµÏÖÁË HttpSessionListener£¬¶ÔsessionµÄ´´½¨ºÍÏú»Ù½øĞĞ¼àÌı¡£
+ * å®ç°äº† HttpSessionListenerï¼Œå¯¹sessionçš„åˆ›å»ºå’Œé”€æ¯è¿›è¡Œç›‘å¬ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ1ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ1æ—¥
  */
 public class OnlineUserListener implements HttpSessionListener {
 
 	private int counter = 0;
 	
 	/** 
-	 * session´´½¨µÄÊ±ºò
+	 * sessionåˆ›å»ºçš„æ—¶å€™
 	 * 
 	 * @see javax.servlet.http.HttpSessionListener#sessionCreated(javax.servlet.http.HttpSessionEvent)
 	 */
 	@Override
 	public void sessionCreated(HttpSessionEvent event) {
-		System.out.println("µ±Ç°ÔÚÏßÈËÊı£º" + ++counter);
+		System.out.println("å½“å‰åœ¨çº¿äººæ•°ï¼š" + ++counter);
 		event.getSession().getServletContext().setAttribute("user_counter", counter);
 	}
 
 	/** 
-	 * sessionÏú»ÙµÄÊ±ºò
+	 * sessioné”€æ¯çš„æ—¶å€™
 	 * 
 	 * @see javax.servlet.http.HttpSessionListener#sessionDestroyed(javax.servlet.http.HttpSessionEvent)
 	 */
 	@Override
 	public void sessionDestroyed(HttpSessionEvent event) {
-		System.out.println("µ±Ç°ÔÚÏßÈËÊı£º" + --counter);
+		System.out.println("å½“å‰åœ¨çº¿äººæ•°ï¼š" + --counter);
 		event.getSession().getServletContext().setAttribute("user_counter", counter);
 	}
 }

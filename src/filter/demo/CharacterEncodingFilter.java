@@ -13,13 +13,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 /**
- * ×Ö·û±àÂë¹ıÂËÆ÷
+ * å­—ç¬¦ç¼–ç è¿‡æ»¤å™¨
  * <p>
- * Ê¹ÓÃÖ¸¶¨×Ö·û¼¯¶Ôrequest/response½øĞĞ±àÂë¡£
+ * ä½¿ç”¨æŒ‡å®šå­—ç¬¦é›†å¯¹request/responseè¿›è¡Œç¼–ç ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ1ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ1æ—¥
  */
 public class CharacterEncodingFilter implements Filter {
 	
@@ -39,19 +39,19 @@ public class CharacterEncodingFilter implements Filter {
 	public void init(FilterConfig arg0) throws ServletException {
 		this.filterConfig = arg0;
 		this.encoding = filterConfig.getInitParameter("encoding");
-		System.out.println("¡¾CharacterEncodingFilter init¡¿");
+		System.out.println("ã€CharacterEncodingFilter initã€‘");
 	}
 	
 	@Override
 	public void destroy() {
-		System.out.println("¡¾CharacterEncodingFilter destroy¡¿");
+		System.out.println("ã€CharacterEncodingFilter destroyã€‘");
 	}
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
 		System.out.println("encoding=" + this.encoding);
-		// ¶Ô ÇëÇóºÍÏìÓ¦ ½øĞĞ×Ö·û¼¯ÉèÖÃ
+		// å¯¹ è¯·æ±‚å’Œå“åº” è¿›è¡Œå­—ç¬¦é›†è®¾ç½®
 		req.setCharacterEncoding(encoding);
 		resp.setCharacterEncoding(encoding);
 		chain.doFilter(req, resp);

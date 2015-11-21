@@ -12,29 +12,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * servletÊ¾Àı
+ * servletç¤ºä¾‹
  * <p>
- * ServletÍ¨³£±»³ÆÎª·şÎñÆ÷¶ËĞ¡³ÌĞò£¬ÊÇÔËĞĞÔÚ·şÎñÆ÷¶ËµÄ³ÌĞò£¬ÓÃÓÚ´¦Àí¼°ÏàÓ¦¿Í»§¶ËµÄÇëÇó¡£
+ * Servleté€šå¸¸è¢«ç§°ä¸ºæœåŠ¡å™¨ç«¯å°ç¨‹åºï¼Œæ˜¯è¿è¡Œåœ¨æœåŠ¡å™¨ç«¯çš„ç¨‹åºï¼Œç”¨äºå¤„ç†åŠç›¸åº”å®¢æˆ·ç«¯çš„è¯·æ±‚ã€‚
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2014-1-11
+ * åˆ›å»ºæ—¥æœŸï¼š2014-1-11
  */
-public class ServletTest extends HttpServlet {// ±ØĞë¼Ì³ĞHttpServlet
+public class ServletTest extends HttpServlet {// å¿…é¡»ç»§æ‰¿HttpServlet
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Í¨³£ÎŞĞèÖØĞ´ÏÂÃæÕâÁ½¸ö·½·¨£¬³ı·ÇĞèÒª³õÊ¼»¯ServletÊ±£¬Íê³ÉÄ³Ğ©×ÊÔ´³õÊ¼»¯µÄ·½·¨£¬²Å¿¼ÂÇÖØĞ´init·½·¨¡£
-	 * Èç¹ûĞèÒªÔÚÏú»ÙServletÖ®Ç°£¬ÏÈÍê³ÉÄ³Ğ©×ÊÔ´µÄ»ØÊÕ£¬±ÈÈç¹Ø±ÕÊı¾İ¿âÁ¬½Ó£¬²ÅĞèÒªÖØĞ´destroy·½·¨¡£
+	 * é€šå¸¸æ— éœ€é‡å†™ä¸‹é¢è¿™ä¸¤ä¸ªæ–¹æ³•ï¼Œé™¤ééœ€è¦åˆå§‹åŒ–Servletæ—¶ï¼Œå®ŒæˆæŸäº›èµ„æºåˆå§‹åŒ–çš„æ–¹æ³•ï¼Œæ‰è€ƒè™‘é‡å†™initæ–¹æ³•ã€‚
+	 * å¦‚æœéœ€è¦åœ¨é”€æ¯Servletä¹‹å‰ï¼Œå…ˆå®ŒæˆæŸäº›èµ„æºçš„å›æ”¶ï¼Œæ¯”å¦‚å…³é—­æ•°æ®åº“è¿æ¥ï¼Œæ‰éœ€è¦é‡å†™destroyæ–¹æ³•ã€‚
 	 */
 	
 	/**
-	 * ³õÊ¼»¯¶¯×÷·ÅÔÚinit·½·¨ÖĞ¶ø²»ÊÇ¹¹Ôì·½·¨ÖĞ
+	 * åˆå§‹åŒ–åŠ¨ä½œæ”¾åœ¨initæ–¹æ³•ä¸­è€Œä¸æ˜¯æ„é€ æ–¹æ³•ä¸­
 	 */
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		super.init(config);// ĞèÒªÊ×ÏÈµ÷ÓÃ¸¸Ààinit·½·¨
+		super.init(config);// éœ€è¦é¦–å…ˆè°ƒç”¨çˆ¶ç±»initæ–¹æ³•
 		System.out.println("init complete");
 	}
 	
@@ -44,36 +44,36 @@ public class ServletTest extends HttpServlet {// ±ØĞë¼Ì³ĞHttpServlet
 	}
 	
 	/**
-	 * ÒÔÏÂÊÇÏìÓ¦¿Í»§¶ËÇëÇóµÄ·½·¨
+	 * ä»¥ä¸‹æ˜¯å“åº”å®¢æˆ·ç«¯è¯·æ±‚çš„æ–¹æ³•
 	 */
 	
 	/**
-	 * ÏìÓ¦GETÇëÇó
+	 * å“åº”GETè¯·æ±‚
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		// ¿ÉÒÔÍ¨¹ıServletConfig»ñÈ¡ÅäÖÃµÄ²ÎÊı
+		// å¯ä»¥é€šè¿‡ServletConfigè·å–é…ç½®çš„å‚æ•°
 		ServletConfig servletConfig = getServletConfig();
 		String id = servletConfig.getInitParameter("id");
 		String password = servletConfig.getInitParameter("password");
 		System.out.println("id=" + id);
 		System.out.println("password=" + password);
 
-		// »ñÈ¡ÇëÇóµÄ²ÎÊıÖµ£¬"emmail" Õâ¸ö²ÎÊıÓë HTML ÖĞ±êÇ©µÄ"name"ÊôĞÔµÄÖµÆ¥Åä
+		// è·å–è¯·æ±‚çš„å‚æ•°å€¼ï¼Œ"emmail" è¿™ä¸ªå‚æ•°ä¸ HTML ä¸­æ ‡ç­¾çš„"name"å±æ€§çš„å€¼åŒ¹é…
 		req.getParameter("email");
 
-		// ÏÂÃæµÄ·½Ê½¿ÉÒÔ»ñÈ¡µ±Ç°Ó¦ÓÃÔÚ·şÎñÆ÷ÉÏµÄ¾ø¶ÔÂ·¾¶
+		// ä¸‹é¢çš„æ–¹å¼å¯ä»¥è·å–å½“å‰åº”ç”¨åœ¨æœåŠ¡å™¨ä¸Šçš„ç»å¯¹è·¯å¾„
 		String realPath = getServletContext().getRealPath("");
 		System.out.println("servlet real path=" + realPath);
 		
-		// ÈİÆ÷ÔËĞĞ¶à¸öÏß³ÌÀ´´¦Àí¶ÔÒ»¸öservletµÄ¶à¸öÇëÇó£¬¶ÔÓ¦Ã¿¸ö¿Í»§ÇëÇó£¬»áÉú³ÉÒ»¶ÔĞÂµÄÇëÇóºÍÏìÓ¦¶ÔÏó¡£
-		// service() ÀàµÄ·½·¨½áÊøºó£¬Ïß³ÌÒªÃ´Ïú»ÙÒªÃ´·µ»Ø¸øÈİÆ÷¹ÜÀíµÄÏß³Ì³Ø¡£
-		// ÇëÇóºÍÏìÓ¦¶ÔÏóÒıÓÃÒÑ¾­³öÁË×÷ÓÃÓò£¬ËùÒÔÕâĞ©¶ÔÏóÒÑ¾­Ã»ÓĞÒâÒå£¬½«»á±»À¬»ø»ØÊÕ¡£
+		// å®¹å™¨è¿è¡Œå¤šä¸ªçº¿ç¨‹æ¥å¤„ç†å¯¹ä¸€ä¸ªservletçš„å¤šä¸ªè¯·æ±‚ï¼Œå¯¹åº”æ¯ä¸ªå®¢æˆ·è¯·æ±‚ï¼Œä¼šç”Ÿæˆä¸€å¯¹æ–°çš„è¯·æ±‚å’Œå“åº”å¯¹è±¡ã€‚
+		// service() ç±»çš„æ–¹æ³•ç»“æŸåï¼Œçº¿ç¨‹è¦ä¹ˆé”€æ¯è¦ä¹ˆè¿”å›ç»™å®¹å™¨ç®¡ç†çš„çº¿ç¨‹æ± ã€‚
+		// è¯·æ±‚å’Œå“åº”å¯¹è±¡å¼•ç”¨å·²ç»å‡ºäº†ä½œç”¨åŸŸï¼Œæ‰€ä»¥è¿™äº›å¯¹è±¡å·²ç»æ²¡æœ‰æ„ä¹‰ï¼Œå°†ä¼šè¢«åƒåœ¾å›æ”¶ã€‚
 	}
 
 	/**
-	 * ÏìÓ¦POSTÇëÇó
+	 * å“åº”POSTè¯·æ±‚
 	 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -81,7 +81,7 @@ public class ServletTest extends HttpServlet {// ±ØĞë¼Ì³ĞHttpServlet
 	}
 	
 	/**
-	 * ÏìÓ¦DELETEÇëÇó
+	 * å“åº”DELETEè¯·æ±‚
 	 */
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
@@ -89,7 +89,7 @@ public class ServletTest extends HttpServlet {// ±ØĞë¼Ì³ĞHttpServlet
 	}
 
 	/**
-	 * ÏìÓ¦PUTÇëÇó
+	 * å“åº”PUTè¯·æ±‚
 	 */
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp)

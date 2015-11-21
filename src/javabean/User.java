@@ -6,9 +6,9 @@ package javabean;
 /**
  * User
  * 
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  * 
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ8ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ8æ—¥
  */
 public class User {
 

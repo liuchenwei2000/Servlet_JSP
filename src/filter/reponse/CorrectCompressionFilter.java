@@ -16,14 +16,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * ÕıÈ·µÄµÄÑ¹ËõÏìÓ¦ Filter Ê¾Àı
+ * æ­£ç¡®çš„çš„å‹ç¼©å“åº” Filter ç¤ºä¾‹
  * <p>
- * Í¨¹ı½¨Á¢×Ô¶¨ÒåµÄ HttpServletResponse ÊµÏÖ£¬²¢°ÑËüÍ¨¹ı chain.doFilter(req, resp) ´«µİ¸ø servlet£¬
- * ÕâÑù¾Í¿ÉÒÔÔÚ servlet Ğ´Êä³öÖ®ºó²¢ÇÒÔÚÊä³ö·µ»Ø¸ø¿Í»§Ö®Ç°£¬ÓÉ¹ıÂËÆ÷½Ø»ñÕâ¸öÊä³ö¡£
+ * é€šè¿‡å»ºç«‹è‡ªå®šä¹‰çš„ HttpServletResponse å®ç°ï¼Œå¹¶æŠŠå®ƒé€šè¿‡ chain.doFilter(req, resp) ä¼ é€’ç»™ servletï¼Œ
+ * è¿™æ ·å°±å¯ä»¥åœ¨ servlet å†™è¾“å‡ºä¹‹åå¹¶ä¸”åœ¨è¾“å‡ºè¿”å›ç»™å®¢æˆ·ä¹‹å‰ï¼Œç”±è¿‡æ»¤å™¨æˆªè·è¿™ä¸ªè¾“å‡ºã€‚
  *  
- * @author Áõ³¿Î°
+ * @author åˆ˜æ™¨ä¼Ÿ
  *
- * ´´½¨ÈÕÆÚ£º2015Äê6ÔÂ1ÈÕ
+ * åˆ›å»ºæ—¥æœŸï¼š2015å¹´6æœˆ1æ—¥
  */
 public class CorrectCompressionFilter implements Filter {
 
@@ -32,7 +32,7 @@ public class CorrectCompressionFilter implements Filter {
 	}
 
 	/**
-	 * ½øĞĞÏìÓ¦µÄÑ¹Ëõ²Ù×÷
+	 * è¿›è¡Œå“åº”çš„å‹ç¼©æ“ä½œ
 	 */
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -41,15 +41,15 @@ public class CorrectCompressionFilter implements Filter {
 		HttpServletResponse response = (HttpServletResponse) resp;
 
 		String validEncoding = request.getHeader("Accept-Encoding");
-		if (validEncoding.contains("gzip")) {// ÅĞ¶Ï¿Í»§¶ËÊÇ·ñ½ÓÊÜ GZIP Ñ¹Ëõ
+		if (validEncoding.contains("gzip")) {// åˆ¤æ–­å®¢æˆ·ç«¯æ˜¯å¦æ¥å— GZIP å‹ç¼©
 			CompressionResponseWrapper responseWrapper = new CompressionResponseWrapper(response);
-			// Í¨Öªä¯ÀÀÆ÷ÔÚÏÔÊ¾Êı¾İÖ®Ç°ÏÈ¶ÔÆä½âÑ¹Ëõ
+			// é€šçŸ¥æµè§ˆå™¨åœ¨æ˜¾ç¤ºæ•°æ®ä¹‹å‰å…ˆå¯¹å…¶è§£å‹ç¼©
 			responseWrapper.setHeader("Content-Encoding", "gzip");
-			// ´«µİ×Ô¶¨ÒåµÄ HttpServletResponse ¸ø servlet
+			// ä¼ é€’è‡ªå®šä¹‰çš„ HttpServletResponse ç»™ servlet
 			chain.doFilter(req, responseWrapper);
-			// ÏìÓ¦·µ»Ø¿Í»§Ö®Ç°½Ø»ñÊä³öÁ÷
+			// å“åº”è¿”å›å®¢æˆ·ä¹‹å‰æˆªè·è¾“å‡ºæµ
 			GZIPOutputStream gzipOutputStream = responseWrapper.getGZIPOutputStream();
-			gzipOutputStream.finish();// ½áÊøÑ¹ËõÁ÷£¬½«ËùÓĞÊı¾İ·¢ËÍµ½Ô­À´µÄÏìÓ¦Á÷
+			gzipOutputStream.finish();// ç»“æŸå‹ç¼©æµï¼Œå°†æ‰€æœ‰æ•°æ®å‘é€åˆ°åŸæ¥çš„å“åº”æµ
 		} else {
 			chain.doFilter(req, resp);
 		}
