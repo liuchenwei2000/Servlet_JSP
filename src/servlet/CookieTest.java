@@ -3,13 +3,12 @@
  */
 package servlet;
 
-import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Cookie 详解
@@ -43,7 +42,7 @@ public class CookieTest extends HttpServlet {
 			}
 		}
 
-		// 创建一个新 Cookie，名值对
+		// 创建一个新 Cookie 名值对
 		Cookie cookie = new Cookie("email", "aaa@gmail.com");
 		// 设置 cookie 在客户端上的存活时间，单位是秒
 		cookie.setMaxAge(30 * 60);
