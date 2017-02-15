@@ -1,1 +1,72 @@
-这是什么
+﻿
+wifi
+Inspur/123456wp
+
+Linux 服务器
+
+10.24.11.232
+u/p：root/1qaz2wsx?
+
+10.24.15.162
+u/p：root/1qaz2wsx?
+
+
+Solr：10.24.11.232:8080/solr
+
+
+solr server（FastDFS tracker）：
+10.24.11.232
+root/1qaz2wsx?
+
+
+FastDFS storage1：
+10.24.14.247
+root/1qaz2wsx?
+
+FastDFS storage2：
+10.24.15.25
+root/1qaz2wsx?
+
+
+
+http://10.24.14.36:7070/gsp/javalogin.jsp
+u/p liuning/123456
+远程u/p cdp/123
+
+GS 60CU 测试环境
+u/p 9999/aaaaaa
+
+
+解决 npm install 时连接 github 失败的问题：
+
+对全局的git做如下的配置：
+git config --global url."https://".insteadOf git://
+
+
+1，开发后端 RESTful 程序（rtf-xxx-service），包括代码和建库表结构。
+2，开发前端界面程序（rtf-xxx-web）。
+3，登录 http://10.24.14.36:7070/gsp/javalogin.jsp 
+在【功能管理】节点，新增功能节点（类型：业务；命名空间：fullbudget.target.user，即 features 文件夹下路径）。
+在【导航项管理】节点，新增导航项（类型：业务；功能关联上面定义的功能节点）。
+
+NC
+http://10.24.13.120:8081/login.jsp
+登录账号：sunlixin  密码：123456a!
+代码：\\10.24.14.36
+
+
+Oracle 数据库 
+jdbc:oracle:thin:@//10.24.14.30:1521/ORA11R2
+u/p lc00009999/Test1234
+
+Jenkins
+http://10.24.1.101:8080/jenkins
+域账号密码
+远程机器u/p:administrator/Test1234
+
+Maven Nexus 中央库
+http://10.24.12.164:8081/
+
+发版文档服务器
+\\10.100.1.163 
+域账号密码
